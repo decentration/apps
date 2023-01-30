@@ -2,28 +2,20 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
-import type { AccountIdIsh, ThemeDef } from '@polkadot/react-components/types';
+import type { ThemeDef } from '@polkadot/react-components/types';
 import type { KeyringAddress } from '@polkadot/ui-keyring/types';
-import type { PromiseResult, QueryableStorageEntry } from '@polkadot/api/types';
-
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Transfer from '@polkadot/app-accounts/modals/Transfer';
-import { AddressMini, ExpanderScroll, AddressInfo, AddressSmall, Button, ChainLock, ExpandButton, Forget, Icon, LinkExternal, Menu, Popup, Tags } from '@polkadot/react-components';
+import { ExpanderScroll, AddressInfo, AddressSmall, Button, ChainLock, ExpandButton, Forget, Icon, LinkExternal, Menu, Popup, Tags } from '@polkadot/react-components';
 import { useApi, useCall, useBalancesAll, useDeriveAccountInfo, useToggle } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';
 import { BN_ZERO, formatNumber, isFunction } from '@polkadot/util';
-import type  { MembersList, FetchProposalState, UserSupersig, FetchListProposals } from 'supersig-types/dist/interfaces/default'
+import type  { MembersList, FetchListProposals } from 'supersig-types/dist/interfaces/default'
 import { useTranslation } from '../translate';
-import { Observable } from '@polkadot/types/types';
-import { Vec } from '@polkadot/types';
-import type { AccountId } from '@polkadot/types/interfaces';
-import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
 import IdentityIcon from '@polkadot/react-components/IdentityIcon';
 import { FormatBalance } from '@polkadot/react-query';
-
 import { largeNumSum } from '../../util';
-
 
 interface Props {
   address: string;
@@ -87,9 +79,9 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
 
   useEffect((): void => {
     const current = keyring.getAddress(address);
+
     getInfo();
     setProposalCnt((proposals?.proposals_info || []).length);
-
     setCurrent(current || null);
     setGenesisHash((current && current.meta.genesisHash) || null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -266,7 +258,9 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
                   onClose={_toggleTransfer}
                   recipientId={address}
                 />
+                
               )}
+             
             </>
           )}
         </td>
@@ -309,15 +303,15 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
         </td>
         <td className='fast-actions-addresses'>
           <div className='fast-actions-row'>
-            {isFunction(api.api.tx.balances?.transfer) && (
+            {/* {isFunction(api.api.tx.balances?.transfer) && (
               <Button
                 className='send-button'
                 icon='paper-plane'
-                key='propose'
-                label={t<string>('propose')}
+                key='vote'
+                label={t<string>('vote')}
                 onClick={_toggleTransfer}
               />
-            )}
+            )} */}
             <Popup
               className={`theme--${theme}`}
               value={PopupDropdown}
