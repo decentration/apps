@@ -1,17 +1,20 @@
 // Copyright 2017-2022 @polkadot/app-democracy authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { Route, Switch } from 'react-router';
 import type { TFunction } from 'i18next';
 import { HelpOverlay, Tabs } from '@polkadot/react-components';
 import type { TabItem } from '@polkadot/react-components/Tabs/types';
 import basicMd from './md/basic.md';
-import { Submission, Decoder } from './Extrinsics';
+import { Submission, Decoder, Decoded } from './Extrinsics';
 import type { DecodedExtrinsic } from './Extrinsics/types';
+import Overview from './Accounts';
 import { useTranslation } from './translate';
 import Contacts from './Supersig/Contacts';
-
+// import type { AppProps } from '@polkadot/react-components/types';
+// import SupersigInfo from './SupersigInfo';
+// import Execute from './Execute';
 
 
 export { default as useCounter } from './useCounter';
@@ -37,7 +40,7 @@ function createItemsRef (t: TFunction): TabItem[] {
     //   text: t<string>('Dashboard')
     // },
     {
-      name: 'dashboard',
+      name: 'supersigs',
       text: t<string>('Supersigs')
     },
     // {
