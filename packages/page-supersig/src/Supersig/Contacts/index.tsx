@@ -37,7 +37,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
     [t('no of members'), 'filter'],
     [t('proposals'), 'number'],
     [t('balance of members'), 'number'],
-    [t('Supersiq balance'), 'balances'],
+    [t('Supersig balance'), 'balances'],
     [undefined, 'media--1400'],
     []
   ]);
