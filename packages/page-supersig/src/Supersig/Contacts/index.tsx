@@ -74,7 +74,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
     let addressArray: string[] = [];
 
     const twoDigit = (number: number): string => {
-      var twodigit = number >= 10 ? number : "0"+number.toString();
+      var twodigit = number >= 10 ? number : "0" + number.toString();
       return twodigit.toString();
     }
 
@@ -89,7 +89,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
       let supersig_concat = ( modl + pallet_id.slice(2, pallet_id.length) + twoDigit(num) + '00000000000000000000000000000000000000' );
       var account = encodeAddress(supersig_concat);
       try{
-        let members: any[] = await (await api.api.rpc.superSig.listMembers(account)).toArray();
+        let members: any[] = (await api.api.rpc.superSig.listMembers(account)).toArray();
         if(members.length > 0){
           addressArray.push(account.toString());
         }

@@ -7,7 +7,6 @@ import type { KeyringAddress } from '@polkadot/ui-keyring/types';
 
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import axios  from 'axios';
 import Transfer from '@polkadot/app-accounts/modals/Transfer';
 import { AddressMini, ExpanderScroll, AddressInfo, AddressSmall, Button, ChainLock, ExpandButton, Forget, Icon, LinkExternal, Menu, Popup, Tags } from '@polkadot/react-components';
 import { useApi, useCall, useBalancesAll, useDeriveAccountInfo, useToggle } from '@polkadot/react-hooks';
@@ -15,9 +14,9 @@ import { keyring } from '@polkadot/ui-keyring';
 import { BN_ZERO, formatNumber, isFunction } from '@polkadot/util';
 import type  { MembersList, FetchProposalState, UserSupersig, FetchListProposals } from 'supersig-types/dist/interfaces/default'
 import { useTranslation } from '../translate';
-import { Vec } from '@polkadot/types';
-import type { AccountId } from '@polkadot/types/interfaces';
-import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
+// import { Vec } from '@polkadot/types';
+// import type { AccountId } from '@polkadot/types/interfaces';
+// import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
 import IdentityIcon from '@polkadot/react-components/IdentityIcon';
 import { FormatBalance } from '@polkadot/react-query';
 
@@ -60,7 +59,7 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
   );
 
   const getInfo = async () => {
-    let members: any[] = await (await api.api.rpc.superSig.listMembers(address)).toArray();
+    let members: any[] = (await api.api.rpc.superSig.listMembers(address)).toArray();
     setMemberCnt(members.length);
     var tempBalance:string = '';
     var tempMemberAccounts : Array<object> = [];

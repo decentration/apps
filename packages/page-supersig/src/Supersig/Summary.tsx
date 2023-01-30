@@ -27,7 +27,7 @@ function Summary ({ balance, supersigs, className }: Props) {
   const supersig = '5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY';
   // const getUserSupersigs = api.rpc.superSig.getUserSupersigs(supersig)
   // const activeSupersigMember = useCall<...any[]>(api.rpc.superSig.getUserSupersigs())>;
-  //api.rpc.superSig.listMembers(supersigs)
+  // api.rpc.superSig.listMembers(supersigs)
 
 
 
