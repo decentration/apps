@@ -14,15 +14,15 @@ import { keyring } from '@polkadot/ui-keyring';
 import { BN_ZERO } from '@polkadot/util';
 
 import CreateModal from '../modals/Create';
-// import ImportModal from '../modals/Import';
-// import Ledger from '../modals/Ledger';
-// import Multisig from '../modals/MultisigCreate';
-// import Proxy from '../modals/ProxiedAdd';
-// import Qr from '../modals/Qr';
+import ImportModal from '../modals/Import';
+import Ledger from '../modals/Ledger';
+import Multisig from '../modals/MultisigCreate';
+import Proxy from '../modals/ProxiedAdd';
+import Qr from '../modals/Qr';
 import { useTranslation } from '../translate';
 import { sortAccounts, SortCategory, sortCategory } from '../utilAccount';
 import Account from './Account';
-// import BannerClaims from './BannerClaims';
+import BannerClaims from './BannerClaims';
 import Summary from './Summary';
 
 interface Balances {

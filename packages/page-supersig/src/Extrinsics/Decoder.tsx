@@ -106,16 +106,6 @@ function Decoder ({ className, defaultValue, setLast }: Props): React.ReactEleme
             key={`extrinsicKey:${extrinsicKey}`}
             label={t<string>('decoded call')}
           />
-           <InputExtrinsic
-            defaultValue={extrinsicFn}
-            isDisabled
-           
-            label={t<string>('supersig proposal')}
-          />
-          <CallDisplay
-            className='details'
-            value={decoded?.method}
-          />
           <CallDisplay
             className='details'
             value={extrinsicCall}

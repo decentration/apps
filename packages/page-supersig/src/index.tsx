@@ -5,16 +5,16 @@ import React, { useMemo, useRef, useState } from 'react';
 import { Route, Switch } from 'react-router';
 import type { TFunction } from 'i18next';
 import { HelpOverlay, Tabs } from '@polkadot/react-components';
+import type { AppProps } from '@polkadot/react-components/types';
 import type { TabItem } from '@polkadot/react-components/Tabs/types';
 import basicMd from './md/basic.md';
 import { Submission, Decoder, Decoded } from './Extrinsics';
 import type { DecodedExtrinsic } from './Extrinsics/types';
+import Execute from './Execute';
 import Overview from './Accounts';
 import { useTranslation } from './translate';
 import Contacts from './Supersig/Contacts';
-// import type { AppProps } from '@polkadot/react-components/types';
-// import SupersigInfo from './SupersigInfo';
-// import Execute from './Execute';
+// import SupersigInfo from './SupersigInfo'
 
 
 export { default as useCounter } from './useCounter';
@@ -34,19 +34,19 @@ function createPathRef (basePath: string): Record<string, string | string[]> {
 
 function createItemsRef (t: TFunction): TabItem[] {
   return [
-    // {
-    //   // isRoot: true,
-    //   name: 'dashboard',
-    //   text: t<string>('Dashboard')
-    // },
+    {
+      // isRoot: true,
+      name: 'dashboard',
+      text: t<string>('Dashboard')
+    },
     {
       name: 'supersigs',
       text: t<string>('Supersigs')
     },
-    // {
-    //   name: 'proposals',
-    //   text: t<string>('Proposals')
-    // },
+    {
+      name: 'proposals',
+      text: t<string>('Proposals')
+    },
     {
       name: 'create',
       text: t<string>('Create/Approve')
@@ -81,17 +81,17 @@ function SupersigApp ({ basePath }: Props): React.ReactElement<Props> {
       />
       
       <Switch>
-        {/* <Route path={`${basePath}/dashboard`}>
+        <Route path={`${basePath}/dashboard`}>
         <Overview />
-        </Route> */}
+        </Route>
         {/* <Route path={pathRef.current.supersigs}>
           <SupersigInfo />
         </Route> */}
         <Route path={`${basePath}/supersigs`}>
           <Contacts basePath={basePath} />
         </Route>
-        {/* <Route path={`${basePath}/proposals`}>
-        </Route> */}
+        <Route path={`${basePath}/proposals`}>
+        </Route>
         <Route path={pathRef.current.decode}>
           <Decoder
             defaultValue={decoded && decoded.hex}

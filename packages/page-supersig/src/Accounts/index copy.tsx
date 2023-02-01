@@ -3,7 +3,7 @@
 
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
 import type { BN } from '@polkadot/util';
-import type { AccountBalance, Delegation, SortedAccount, SortedSupersig } from '../typesAccount';
+import type { AccountBalance, Delegation, SortedAccount } from '../typesAccount';
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
@@ -63,7 +63,6 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   const [balances, setBalances] = useState<Balances>({ accounts: {} });
   const [filterOn, setFilter] = useState<string>('');
   const [sortedAccounts, setSorted] = useState<SortedAccount[]>([]);
-  const [sortedSupersigs, setSupersigs] = useState<SortedSupersig[]>([]);
   const [{ sortBy, sortFromMax }, setSortBy] = useState<SortControls>(DEFAULT_SORT_CONTROLS);
   const delegations = useDelegations();
   const proxies = useProxies();
@@ -87,8 +86,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
           account: keyring.getAccount(address),
           address,
           delegation,
-          isFavorite: favoritesMap[address ?? ''] ?? false,
-          isInSupersig: false,
+          isFavorite: favoritesMap[address ?? ''] ?? false
         };
       })
   , [allAccounts, favoritesMap, delegations]);
@@ -104,8 +102,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   }, [accountsWithInfo]);
 
   const header = useRef([
-    [t('Accounts'), 'start', 3],
-    // [t('supersigs')],
+    [t('accounts'), 'start', 3],
     [t('type')],
     [t('transactions'), 'media--1500'],
     [t('balances'), 'balances'],
@@ -113,8 +110,6 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   ]);
 
   useEffect((): void => {
-    // Add conditional if connected to a supersig
-
     // We add new accounts to the end
     setSorted((sortedAccounts) =>
       [...sortedAccounts.map((x) => accountsWithInfo.find((y) => x.address === y.address)).filter((x): x is SortedAccount => !!x),
@@ -173,28 +168,6 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
     return ret;
   }, [accountsWithInfo, filterOn, proxies, _setBalance, toggleFavorite]);
 
-  const accountComponentsWithSupersig = useMemo(() => {
-    const ret: Record<string, React.ReactNode> = {};
-
-    accountsWithInfo.forEach(({ account, address, delegation, isFavorite, isInSupersig }, index) => {
-      ret[address] =
-        <Account
-          account={account}
-          delegation={delegation}
-          filter={filterOn}
-          isFavorite={isFavorite}
-          key={`${index}:${address}`}
-          proxy={proxies?.[index]}
-          setBalance={_setBalance}
-          toggleFavorite={toggleFavorite}
-          isInSupersig={isInSupersig}
-        />;
-    });
-
-    return ret;
-  }, [accountsWithInfo, filterOn, proxies, _setBalance, toggleFavorite]);
-
-
   const onDropdownChange = () => (item: SortCategory) => setSortBy({ sortBy: item, sortFromMax });
 
   const dropdownOptions = () => sortCategory.map((x) => ({ text: x, value: x }));
@@ -209,7 +182,33 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
           onStatusChange={onStatusChange}
         />
       )}
-     
+      {isImportOpen && (
+        <ImportModal
+          onClose={toggleImport}
+          onStatusChange={onStatusChange}
+        />
+      )}
+      {isLedgerOpen && (
+        <Ledger onClose={toggleLedger} />
+      )}
+      {isMultisigOpen && (
+        <Multisig
+          onClose={toggleMultisig}
+          onStatusChange={onStatusChange}
+        />
+      )}
+      {isProxyOpen && (
+        <Proxy
+          onClose={toggleProxy}
+          onStatusChange={onStatusChange}
+        />
+      )}
+      {isQrOpen && (
+        <Qr
+          onClose={toggleQr}
+          onStatusChange={onStatusChange}
+        />
+      )}
       <BannerExtension />
       <BannerClaims />
       <Summary balance={balances.summary} />
@@ -236,11 +235,41 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
           <Button
             icon='plus'
             isDisabled={isIpfs}
-            label={t<string>('Add Supersig')}
+            label={t<string>('Add account')}
             onClick={_openCreateModal}
           />
-       
-
+          <Button
+            icon='sync'
+            isDisabled={isIpfs}
+            label={t<string>('Restore JSON')}
+            onClick={toggleImport}
+          />
+          <Button
+            icon='qrcode'
+            label={t<string>('Add via Qr')}
+            onClick={toggleQr}
+          />
+          {isLedgerEnabled && (
+            <>
+              <Button
+                icon='project-diagram'
+                label={t<string>('Add via Ledger')}
+                onClick={toggleLedger}
+              />
+            </>
+          )}
+          <Button
+            icon='plus'
+            isDisabled={!(api.tx.multisig || api.tx.utility) || !hasAccounts}
+            label={t<string>('Multisig')}
+            onClick={toggleMultisig}
+          />
+          <Button
+            icon='plus'
+            isDisabled={!api.tx.proxy || !hasAccounts}
+            label={t<string>('Proxied')}
+            onClick={toggleProxy}
+          />
         </Button.Group>
       </SummaryBox>
       <Table
@@ -250,15 +279,6 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
       >
         {!isLoading &&
           sortedAccounts.map(({ address }) => accountComponents[address])
-        }
-      </Table>
-      <Table
-        empty={!isLoading && sortedSupersigs && t<string>("You don't have any supersig accounts. Some features are currently hidden and will only become available once you are connected to a supersig accounts.")}
-        header={header.current}
-        withCollapsibleRows
-      >
-        {!isLoading &&
-          sortedSupersigs.map(({ address }) => accountComponentsWithSupersig[address])
         }
       </Table>
     </div>
