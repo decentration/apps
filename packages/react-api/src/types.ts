@@ -31,6 +31,7 @@ export interface ApiState {
 }
 
 export interface ApiProps extends ApiState {
+  tx: any;
   api: ApiPromise;
   apiEndpoint: LinkOption | null;
   apiError: string | null;
