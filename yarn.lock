@@ -3111,7 +3111,7 @@ __metadata:
     moonbeam-types-bundle: 2.0.10
     pontem-types-bundle: 1.0.15
     rxjs: ^7.8.0
-    supersig-types: ^0.1.5
+    supersig-types: ^0.1.6
   languageName: unknown
   linkType: soft
 
@@ -18811,10 +18811,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supersig-types@npm:^0.1.5":
-  version: 0.1.5
-  resolution: "supersig-types@npm:0.1.5"
-  checksum: d8b6425241ea72b5f5f3c83d5c2d2203e0f045a00565757c0aad47afdc36c38124e0bffc75e0b6c2463a313f512a7994899fb0ed198284bd9d4273de69e5c57a
+"supersig-types@npm:^0.1.6":
+  version: 0.1.6
+  resolution: "supersig-types@npm:0.1.6"
+  checksum: 5e168ea93100f8e457f4dd503e637b029223175083c97c366fed6678119bbe1b443fde3055e0ae63a9f0944f2ea556df7a533a44d7cc02a21165517a16972077
   languageName: node
   linkType: hard
 

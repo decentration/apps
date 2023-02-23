@@ -78245,7 +78245,7 @@ export const typesBundle = {
         }
       ]
     },
-    "supersig-template": {
+    "node-template": {
       "types": [
           {
               "minmax": [

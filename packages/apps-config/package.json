@@ -53,6 +53,6 @@
     "moonbeam-types-bundle": "2.0.10",
     "pontem-types-bundle": "1.0.15",
     "rxjs": "^7.8.0",
-    "supersig-types": "^0.1.5"
+    "supersig-types": "^0.1.6"
   }
 }

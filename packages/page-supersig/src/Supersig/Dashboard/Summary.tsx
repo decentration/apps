@@ -2,11 +2,10 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react';
-import '../../augment-supersig.ts';
+import '@supersig-types/augment-supersig-rpc.ts';
 import { useTranslation } from '@polkadot/app-treasury/translate';
-import { CardSummary, SummaryBox } from '@polkadot/react-components';
+import { CardSummary } from '@polkadot/react-components';
 import { FormatBalance } from '@polkadot/react-query';
-import { useCall, useApi } from '@polkadot/react-hooks';
 
 type SortedAddress = { address: string; isFavorite: boolean };
 
