@@ -4,10 +4,10 @@
 import type { ComponentProps as Props } from '../types';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Table } from '@polkadot/react-components';
+import { Table, Button, SummaryBox } from '@polkadot/react-components';
 import { useApi, useCall, useFavorites, useToggle } from '@polkadot/react-hooks';
 import { useLoadingDelay } from './useLoadingDelay'
-import CreateModal from '../modals/Create';
+import CreateModal from '../../../../page-accounts/src/modals/Create';
 import { useTranslation } from '../translate';
 import Address from './Table';
 import Summary from './Summary';
@@ -113,13 +113,30 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
 
   return (
     <div className={className} style={{overflow: "auto"}}>
+     
       {isCreateOpen && (
         <CreateModal
           onClose={toggleCreate}
           onStatusChange={onStatusChange}
         />
       )}
+      <StyledDiv>
+      <SummaryBox className='header-box'>
       <Summary sigCnt={sortedAddresses} totalProposals={totalProposalCnt} totalBalance={totalBalance} />
+        <Button.Group>
+           <a href={`#/supersig/create/0x080000`}>
+                <Button
+                  className='send-button'
+                  icon='plus'
+                  key='create'
+                  label={t<string>('create supersig')}
+                  onClick={()=>{}}
+                />
+              </a>
+          </Button.Group>
+        </SummaryBox>
+        </StyledDiv>
+
       <Table
         empty={!isLoading && sortedAddresses && t<string>('no addresses saved yet, add any existing address')}
         header={headerRef.current}
@@ -138,6 +155,24 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
     </div>
   );
 }
+const StyledDiv = styled.div`
+  .ui--Dropdown {
+    width: 15rem;
+  }
+
+  .header-box {
+    .dropdown-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-right: 30px;
+    }
+
+    .ui--Button-Group {
+      margin-left: auto;
+    }
+  }
+`;
 
 export default React.memo(styled(Overview)`
   .summary-box-contacts {

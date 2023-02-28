@@ -40,7 +40,7 @@ export default function create (t: TFunction): Route {
       // needsApiCheck
 
     },
-    group: 'governance',
+    group: 'supersig',
     icon: 'people-line',
     name: 'supersig',
     text: t('nav.supersig', 'Supersig', { ns: 'apps-routing' }),

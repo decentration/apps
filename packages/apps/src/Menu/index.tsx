@@ -100,6 +100,7 @@ function Menu ({ className = '' }: Props): React.ReactElement<Props> {
 
   const groupRef = useRef({
     accounts: t<string>('Accounts'),
+    supersig: t<string>('Supersig'),
     developer: t<string>('Developer'),
     files: t<string>('Files'),
     governance: t<string>('Governance'),

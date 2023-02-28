@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react';
-import '@supersig-types/augment-supersig-rpc.ts';
+import 'supersig-types';
 import { useTranslation } from '@polkadot/app-treasury/translate';
 import { CardSummary } from '@polkadot/react-components';
 import { FormatBalance } from '@polkadot/react-query';

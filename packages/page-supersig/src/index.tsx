@@ -7,8 +7,8 @@ import type { TFunction } from 'i18next';
 import { HelpOverlay, Tabs } from '@polkadot/react-components';
 import type { TabItem } from '@polkadot/react-components/Tabs/types';
 import basicMd from './md/basic.md';
-import { Submission, Decoder, Decoded } from './Extrinsics';
-import type { DecodedExtrinsic } from './Extrinsics/types';
+import { Submission, Decoder } from './SupersigDecoder';
+import type { DecodedExtrinsic } from '../../page-extrinsics/src/types';
 import { useTranslation } from './translate';
 import Contacts from './Supersig/Dashboard';
 
