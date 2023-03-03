@@ -3020,15 +3020,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot/app-supersig-decoder@workspace:packages/page-supersig-decoder":
-  version: 0.0.0-use.local
-  resolution: "@polkadot/app-supersig-decoder@workspace:packages/page-supersig-decoder"
-  dependencies:
-    "@babel/runtime": ^7.21.0
-    "@polkadot/react-components": ^0.124.2-95-x
-  languageName: unknown
-  linkType: soft
-
 "@polkadot/app-supersig@workspace:packages/page-supersig":
   version: 0.0.0-use.local
   resolution: "@polkadot/app-supersig@workspace:packages/page-supersig"
