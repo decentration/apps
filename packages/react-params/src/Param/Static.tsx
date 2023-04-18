@@ -26,7 +26,7 @@ interface Props {
 function StaticParam ({ asHex, children, childrenPre, className = '', defaultValue, isOptional, label }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
 
-  const value = useMemo(
+  const value : any = useMemo(
     () => defaultValue && defaultValue.value && (
       asHex
         ? (defaultValue.value as Codec).toHex()

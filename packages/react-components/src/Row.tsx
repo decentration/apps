@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountId, AccountIndex, Address } from '@polkadot/types/interfaces';
+import type { AccountId } from '@polkadot/types/interfaces';
 
 import React, { useCallback } from 'react';
 
@@ -13,7 +13,7 @@ import { styled } from './styled';
 import Tags from './Tags';
 
 export interface RowProps {
-  address?: AccountId | AccountIndex | Address | string | null;
+  address?: AccountId | string | null | any;
   buttons?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;

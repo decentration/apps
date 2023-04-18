@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import React from 'react';
-
+import type { DropdownItemProps } from 'semantic-ui-react';
 import Dropdown from './Dropdown';
 import Icon from './Icon';
 import { styled } from './styled';
@@ -13,7 +13,7 @@ interface Props {
   label: string;
   onChange: (value: any) => void;
   onClick: () => void;
-  options: unknown[];
+  options: (React.ReactNode | DropdownItemProps)[];
   sortDirection: 'descending' | 'ascending';
 }
 

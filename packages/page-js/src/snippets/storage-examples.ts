@@ -3,11 +3,11 @@
 
 import type { Snippet } from '@polkadot/app-js/types';
 
-const label = {
-  children: 'Storage',
-  color: 'blue',
-  size: 'tiny'
-};
+// const label = {
+//   children: 'Storage',
+//   color: 'blue',
+//   size: 'tiny'
+// };
 
 export const storageGetInfo: Snippet = {
   code: `// Get chain state information
@@ -36,7 +36,7 @@ if (validators && validators.length > 0) {
   });
 }
 `,
-  label,
+  // label,
   text: 'Get chain state information',
   value: 'storageGetInfo'
 };
@@ -59,7 +59,7 @@ api.query.system.events((events) => {
     });
   });
 });`,
-  label,
+  // label,
   text: 'Listen to system events',
   value: 'storageSystemEvents'
 };
@@ -85,7 +85,7 @@ api.query.system.account(ALICE, ([, { free }]) => {
     console.log('New transaction of: '+ change);
   }
 });`,
-  label,
+  // label,
   text: 'Listen to balance changes',
   value: 'storageListenToBalanceChange'
 };
@@ -102,7 +102,7 @@ console.log('Tracking balances for:', [ALICE, BOB])
 api.query.system.account.multi([ALICE, BOB], (info) => {
   console.log('Change detected, new balances: ', info)
 });`,
-  label,
+  // label,
   text: 'Listen to multiple balances changes',
   value: 'storageListenToMultipleBalancesChange'
 };
@@ -133,7 +133,7 @@ const currHash = await api.query.system.account.hash(ALICE);
 const currSize = await api.query.system.account.size(ALICE);
 
 console.log('Alice account entry has a value hash of', currHash, 'with a size of', currSize);`,
-  label,
+  // label,
   text: 'Retrieve historic query data',
   value: 'storageRetrieveInfoOnQueryKeys'
 };
@@ -158,7 +158,7 @@ console.log(api.query.staking.erasStakers.key(0, ALICE));
 // show the key prefix for a doublemap
 console.log(api.query.staking.erasStakers.keyPrefix());
 `,
-  label,
+  // label,
   text: 'Get underlying storage key hex values',
   value: 'storageKeys'
 };

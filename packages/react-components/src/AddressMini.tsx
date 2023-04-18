@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/app-staking authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountId, AccountIndex, Address } from '@polkadot/types/interfaces';
+import type { AccountId } from '@polkadot/types/interfaces';
 import type { KeyringItemType } from '@polkadot/ui-keyring/types';
 import type { BN } from '@polkadot/util';
 
@@ -29,7 +29,7 @@ interface Props {
   onNameClick?: () => void;
   summary?: React.ReactNode;
   type?: KeyringItemType;
-  value?: AccountId | AccountIndex | Address | string | null | Uint8Array;
+  value?: AccountId | string | null | Uint8Array | any;
   withAddress?: boolean;
   withBalance?: boolean;
   withBonded?: boolean;

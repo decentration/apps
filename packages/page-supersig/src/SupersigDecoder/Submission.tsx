@@ -39,7 +39,7 @@ function extractDefaults (value: DecodedExtrinsic | null, defaultFn: Submittable
   };
 }
 
-function getDecodedExtr (api:ApiPromise, encodedVal: string, defaultValue: DecodedExtrinsic | null): DecodedExtrinsic|null {
+function getDecodedExtr (api:ApiPromise, encodedVal: string, defaultValue: DecodedExtrinsic | null | undefined): DecodedExtrinsic|null {
   try {
     if(encodedVal == undefined && defaultValue){
       return defaultValue;

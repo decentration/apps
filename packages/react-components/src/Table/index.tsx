@@ -19,7 +19,7 @@ interface Props {
   emptySpinner?: React.ReactNode;
   filter?: React.ReactNode;
   footer?: React.ReactNode;
-  header?: ([React.ReactNode?, string?, number?, (() => void)?] | false | null | undefined)[];
+  header?: any;//([React.ReactNode?, string?, number?, (() => void)?] | false | null | undefined)[];
   headerChildren?: React.ReactNode;
   isFixed?: boolean;
   isInline?: boolean;

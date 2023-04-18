@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountId, Address } from '@polkadot/types/interfaces';
+// import type { AccountId, Address } from '@polkadot/types/interfaces';
 
 import React from 'react';
 
@@ -20,7 +20,7 @@ interface Props {
   withSidebar?: boolean;
   withShortAddress?: boolean;
   toggle?: unknown;
-  value?: string | Address | AccountId | null | Uint8Array;
+  value?: string | null | Uint8Array;
 }
 
 function AddressSmall ({ children, className = '', defaultName, onClickName, overrideName, parentAddress, toggle, value, withShortAddress = false, withSidebar = true }: Props): React.ReactElement<Props> {

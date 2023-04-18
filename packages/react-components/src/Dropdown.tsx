@@ -29,7 +29,7 @@ interface Props<Option extends DropdownItemProps> {
   onChange?: (value: any) => void;
   onClose?: () => void;
   onSearch?: (filteredOptions: any[], query: string) => Option[];
-  options: (React.ReactNode | Option)[];
+  options: (React.ReactNode | Option | unknown)[];
   placeholder?: string;
   renderLabel?: (item: any) => any;
   searchInput?: { autoFocus: boolean };

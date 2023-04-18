@@ -5,7 +5,7 @@ import type { DeriveAccountInfo } from '@polkadot/api-derive/types';
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
 import type { ModalProps as Props } from '../types';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { AddressRow, Button, Input, InputAddress, Modal } from '@polkadot/react-components';
 import { useApi, useCall, useFavorites } from '@polkadot/react-hooks';
@@ -38,7 +38,7 @@ function Create ({ onClose, onStatusChange }: Props): React.ReactElement<Props> 
   const info = useCall<DeriveAccountInfo>(!!address && isAddressValid && api.derive.accounts.info, [address]);
   const isValid = (isAddressValid && isNameValid) && !!info?.accountId;
   const [favorites, toggleFavorite] = useFavorites(STORE_FAVS);
-
+  console.log(favorites);
   const _onChangeAddress = useCallback(
     (addressInput: string): void => {
       let address = '';

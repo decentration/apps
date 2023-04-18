@@ -10,7 +10,7 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   copyValue?: string;
-  defaultValue?: unknown;
+  defaultValue?: any;
   isDisabled?: boolean;
   isError?: boolean;
   isFull?: boolean;
@@ -33,8 +33,10 @@ function Static ({ children, className = '', copyValue, defaultValue, isFull, is
       withLabel={withLabel}
     >
       <div className='ui--Static ui dropdown selection disabled'>
-        {value || defaultValue}
-        {children}
+        <>
+          {value || defaultValue}
+          {children}
+        </>
       </div>
       {withCopy && (
         <CopyButton value={copyValue || value || defaultValue} />

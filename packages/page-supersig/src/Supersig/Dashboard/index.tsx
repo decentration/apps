@@ -23,7 +23,8 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   const [isCreateOpen, toggleCreate] = useToggle(false);
   const [favorites, toggleFavorite] = useFavorites(STORE_FAVS);
   const [sortedAddresses, setSortedAddresses] = useState<SortedAddress[] | undefined>();
-  const [filterOn, setFilter] = useState<string>('');
+  // const [filterOn, setFilter] = useState<string>('');
+  const filterOn = '';
   const [totalProposalCnt, setTotalProposalCnt] = useState<number>(0);
   const [totalBalance, setTotalBalance] = useState('');
   const isLoading = useLoadingDelay();
@@ -140,7 +141,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
       <Table
         empty={!isLoading && sortedAddresses && t<string>('no addresses saved yet, add any existing address')}
         header={headerRef.current}
-        withCollapsibleRows
+        // withCollapsibleRows
       >
         {!isLoading && sortedAddresses?.map(({ address, isFavorite }): React.ReactNode => (
           <Address
