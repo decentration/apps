@@ -9,9 +9,9 @@ import React, { useCallback } from 'react';
 import { Button, ErrorBoundary, Modal } from '@polkadot/react-components';
 import { useQueue, useToggle } from '@polkadot/react-hooks';
 
-import Transaction from './Transaction.js';
-import { useTranslation } from './translate.js';
-import { handleTxResults } from './util.js';
+import Transaction from './Transaction';
+import { useTranslation } from './translate';
+import { handleTxResults } from './util';
 
 interface Props {
   className?: string;

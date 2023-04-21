@@ -3,7 +3,7 @@
 
 import type { Bytes } from '@polkadot/types';
 import type { AccountId32 } from '@polkadot/types/interfaces';
-import type { Unscrupulous } from './types.js';
+import type { Unscrupulous } from './types';
 
 import { useMemo } from 'react';
 

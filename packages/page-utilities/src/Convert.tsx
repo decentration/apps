@@ -11,7 +11,7 @@ import { useApi } from '@polkadot/react-hooks';
 import { formatNumber } from '@polkadot/util';
 import { base58Decode, checkAddressChecksum, encodeAddress, isAddress } from '@polkadot/util-crypto';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;
@@ -57,11 +57,12 @@ function Addresses ({ className }: Props): React.ReactElement<Props> {
       const network = allNetworks.find(({ prefix }) => prefix === chainSS58);
 
       return createSs58(t).map((o) =>
-        createOption(o, ['default'], 'empty', (o.value === -1
-          ? network
-            ? ` (${network.displayName}, ${chainSS58 || 0})`
-            : ` (${chainSS58 || 0})`
-          : ` (${o.value})`
+        createOption(o, ['default'], 'empty', (
+          o.value === -1
+            ? network
+              ? ` (${network.displayName}, ${chainSS58 || 0})`
+              : ` (${chainSS58 || 0})`
+            : ` (${o.value})`
         ))
       );
     },

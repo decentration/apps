@@ -1,9 +1,9 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountIdIsh } from '../types.js';
-
 import { keyring } from '@polkadot/ui-keyring';
+
+import { AccountIdIsh } from '../types';
 
 export function getAccountCryptoType (accountId: AccountIdIsh): string {
   try {

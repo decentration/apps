@@ -7,7 +7,7 @@ import React from 'react';
 
 import { AddressMini } from '@polkadot/react-components';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   isMultisig: boolean;
@@ -32,7 +32,9 @@ function Multisig ({ isMultisig, meta }: Props): React.ReactElement<Props> | nul
         <div className='tr'>
           <div className='th'>{t<string>('threshold')}</div>
           <div className='td'>
-            {threshold}/{(who as string[]).length}
+            <>
+              {threshold}/{(who as string[]).length}
+            </>
           </div>
         </div>
         <div className='tr'>

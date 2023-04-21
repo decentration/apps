@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { KeyringAddress } from '@polkadot/ui-keyring/types';
-import type { SortedAccount } from './types.js';
+import type { SortedAccount } from './types';
 
 import React from 'react';
 

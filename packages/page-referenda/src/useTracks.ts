@@ -3,13 +3,13 @@
 
 import type { PalletReferendaTrackInfo } from '@polkadot/types/lookup';
 import type { BN } from '@polkadot/util';
-import type { PalletReferenda, TrackDescription } from './types.js';
+import type { PalletReferenda, TrackDescription } from './types';
 
 import { useMemo } from 'react';
 
 import { createNamedHook, useApi } from '@polkadot/react-hooks';
 
-import { calcCurves } from './util.js';
+import { calcCurves } from './util';
 
 function expandTracks (tracks: [BN, PalletReferendaTrackInfo][]): TrackDescription[] {
   return tracks.map(([id, info]) => ({

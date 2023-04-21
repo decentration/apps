@@ -1,15 +1,15 @@
 // Copyright 2017-2023 @polkadot/app-calendar authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { EntryInfoTyped } from './types.js';
+import type { EntryInfoTyped } from './types';
 
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { Button, styled } from '@polkadot/react-components';
 import { formatNumber, isString } from '@polkadot/util';
 
-import { useTranslation } from './translate.js';
-import { dateCalendarFormat } from './util.js';
+import { useTranslation } from './translate';
+import { dateCalendarFormat } from './util';
 
 interface Props {
   className?: string;

@@ -1,14 +1,14 @@
 // Copyright 2017-2023 @polkadot/react-params authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Props as BaseProps } from '../types.js';
+import type { Props as BaseProps } from '../types';
 
 import React, { useCallback, useState } from 'react';
 
 import { InputAddressSimple } from '@polkadot/react-components';
 import { isEthereumAddress, validateAddress } from '@polkadot/util-crypto';
 
-import Bare from './Bare.js';
+import Bare from './Bare';
 
 interface Props extends BaseProps {
   bytesLength: 20 | 32;
@@ -17,9 +17,13 @@ interface Props extends BaseProps {
 function isValidAddress (value: string | null | undefined, isEthereum: boolean): boolean {
   if (value) {
     try {
-      return isEthereum
-        ? isEthereumAddress(value)
-        : validateAddress(value);
+      if (isEthereum) {
+        return isEthereumAddress(value);
+      } else {
+        return validateAddress(value);
+      }
+
+      return true;
     } catch (err) {
       console.error(err);
     }

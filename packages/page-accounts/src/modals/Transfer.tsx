@@ -8,12 +8,13 @@ import type { BN } from '@polkadot/util';
 import React, { useEffect, useState } from 'react';
 
 import { checkAddress } from '@polkadot/phishing';
-import { InputAddress, InputBalance, MarkError, MarkWarning, Modal, styled, Toggle, TxButton } from '@polkadot/react-components';
+import { InputAddress, InputBalance, MarkError, MarkWarning, styled, Toggle, TxButton } from '@polkadot/react-components';
+import Modal from '@polkadot/react-components/Modal';
 import { useApi, useCall } from '@polkadot/react-hooks';
 import { Available } from '@polkadot/react-query';
 import { BN_HUNDRED, BN_ZERO, isFunction, nextTick } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;
@@ -198,11 +199,7 @@ function Transfer ({ className = '', onClose, recipientId: propRecipientId, send
         <TxButton
           accountId={propSenderId || senderId}
           icon='paper-plane'
-          isDisabled={
-            (!isAll && (!hasAvailable || !amount)) ||
-            !(propRecipientId || recipientId) ||
-            !!recipientPhish
-          }
+          isDisabled={!hasAvailable || !(propRecipientId || recipientId) || !amount || !!recipientPhish}
           label={t<string>('Make Transfer')}
           onStart={onClose}
           params={
@@ -217,7 +214,7 @@ function Transfer ({ className = '', onClose, recipientId: propRecipientId, send
               ? api.tx.balances?.transferAll
               : isProtected
                 ? api.tx.balances?.transferKeepAlive
-                : api.tx.balances?.transferAllowDeath || api.tx.balances?.transfer
+                : api.tx.balances?.transfer
           }
         />
       </Modal.Actions>

@@ -3,7 +3,8 @@
 
 import type { DeriveCollectiveProposal } from '@polkadot/api-derive/types';
 import type { BountyStatus } from '@polkadot/types/interfaces';
-import type { BountyVotingStatuses, StatusName } from '../types.js';
+
+import { BountyVotingStatuses, StatusName } from '../types';
 
 const validProposalNames: BountyVotingStatuses = {
   Active: ['closeBounty', 'unassignCurator'],

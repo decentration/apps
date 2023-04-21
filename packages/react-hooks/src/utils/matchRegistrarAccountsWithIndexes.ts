@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { SortedJudgements } from '@polkadot/react-components/util/types';
-import type { Judgement, Registrar } from '../types.js';
+import type { Judgement, Registrar } from '../types';
 
 export function matchRegistrarAccountsWithIndexes (
   judgementsWithRegistrarIndexes: SortedJudgements,

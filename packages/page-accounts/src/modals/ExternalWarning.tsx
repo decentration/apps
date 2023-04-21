@@ -5,7 +5,7 @@ import React from 'react';
 
 import { MarkWarning } from '@polkadot/react-components';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 const isElectron = navigator.userAgent.toLowerCase().indexOf(' electron/') > -1;
 

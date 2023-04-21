@@ -3,8 +3,8 @@
 
 import React from 'react';
 
-import Button from '../Button/index.js';
-import { styled } from '../styled.js';
+import Button from '../Button';
+import { styled } from '../styled';
 
 interface Props {
   className?: string;

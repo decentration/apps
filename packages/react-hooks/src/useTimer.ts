@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { useIsMountedRef } from './useIsMountedRef.js';
+import { useIsMountedRef } from './useIsMountedRef';
 
 export function useTimer <T> (stateFn: (prev: T) => T, initial: T, interval: number): T {
   const [state, setState] = useState(initial);

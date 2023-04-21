@@ -7,7 +7,7 @@ import React from 'react';
 
 import { Badge, styled, Tag } from '@polkadot/react-components';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

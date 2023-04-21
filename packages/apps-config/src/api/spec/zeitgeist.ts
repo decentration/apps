@@ -5,7 +5,7 @@ import type { OverrideBundleDefinition } from '@polkadot/types/types';
 
 import * as typeDefs from '@zeitgeistpm/type-defs';
 
-import { typesFromDefs } from '../util.js';
+import { typesFromDefs } from '../util';
 
 const bundle = {
   alias: {
@@ -16,9 +16,7 @@ const bundle = {
   types: [{
     minmax: [0, undefined],
     types: {
-      // the cast here is needed to make the build happy,
-      // however the output is actually correct as well...
-      ...typesFromDefs(typeDefs as unknown as Record<string, { types: Record<string, any> }>),
+      ...typesFromDefs(typeDefs),
       TokensAccountData: {
         free: 'Balance',
         frozen: 'Balance',

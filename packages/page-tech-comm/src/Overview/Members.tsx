@@ -5,7 +5,7 @@ import React, { useRef } from 'react';
 
 import { AddressSmall, Table, Tag } from '@polkadot/react-components';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

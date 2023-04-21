@@ -6,7 +6,7 @@ import React, { useCallback, useState } from 'react';
 import { Button, FilterOverlay, Input, styled } from '@polkadot/react-components';
 import { isHex } from '@polkadot/util';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

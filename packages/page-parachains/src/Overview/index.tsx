@@ -2,12 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ParaId } from '@polkadot/types/interfaces';
-import type { LeasePeriod, Proposals, QueuedAction } from '../types.js';
+import type { LeasePeriod, Proposals, QueuedAction } from '../types';
 
 import React from 'react';
 
-import Parachains from './Parachains.js';
-import Summary from './Summary.js';
+import Parachains from './Parachains';
+import Summary from './Summary';
 
 interface Props {
   actionsQueue: QueuedAction[];

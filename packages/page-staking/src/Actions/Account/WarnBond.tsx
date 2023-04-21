@@ -9,7 +9,7 @@ import React, { useMemo } from 'react';
 import { MarkWarning } from '@polkadot/react-components';
 import { formatBalance } from '@polkadot/util';
 
-import { useTranslation } from '../../translate.js';
+import { useTranslation } from '../../translate';
 
 interface Props {
   minBond?: BN;

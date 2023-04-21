@@ -6,7 +6,7 @@ import { Input as SUIInput } from 'semantic-ui-react';
 
 import { isFunction, isUndefined } from '@polkadot/util';
 
-import Labelled from './Labelled.js';
+import Labelled from './Labelled';
 
 type Input$Type = 'number' | 'password' | 'text';
 
@@ -208,7 +208,6 @@ function Input ({ autoFocus = false, children, className, defaultValue, icon, in
           data-testid={label}
           onPaste={_onPaste}
           spellCheck={false}
-          style={{ pointerEvents: 'auto' }}
         />
         {isEditable && (
           <i className='edit icon' />
@@ -222,4 +221,11 @@ function Input ({ autoFocus = false, children, className, defaultValue, icon, in
 
 export default React.memo(Input);
 
-export { isCopy, isCut, isPaste, isSelectAll, KEYS, KEYS_PRE };
+export {
+  isCopy,
+  isCut,
+  isPaste,
+  isSelectAll,
+  KEYS,
+  KEYS_PRE
+};

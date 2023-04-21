@@ -12,9 +12,9 @@ import { useAccounts, useCollectiveInstance, useVotingStatus } from '@polkadot/r
 import { BlockToTime } from '@polkadot/react-query';
 import { formatNumber } from '@polkadot/util';
 
-import Close from './Close.js';
-import Voters from './Voters.js';
-import Voting from './Voting.js';
+import Close from './Close';
+import Voters from './Voters';
+import Voting from './Voting';
 
 interface Props {
   className?: string;

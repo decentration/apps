@@ -3,14 +3,14 @@
 
 import type { PalletReferendaDeposit, PalletReferendaTrackInfo } from '@polkadot/types/lookup';
 import type { BN } from '@polkadot/util';
-import type { PalletReferenda } from '../../types.js';
+import type { PalletReferenda } from '../../types';
 
 import React from 'react';
 
 import { AddressMini, styled } from '@polkadot/react-components';
 
-import Place from './Place.js';
-import Refund from './Refund.js';
+import Place from './Place';
+import Refund from './Refund';
 
 interface Props {
   canDeposit?: boolean;

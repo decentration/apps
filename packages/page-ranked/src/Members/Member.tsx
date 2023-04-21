@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { FlagColor } from '@polkadot/react-components/types';
-import type { Member as MemberType } from '../types.js';
+import type { Member as MemberType } from '../types';
 
 import React from 'react';
 
 import { AddressSmall, Tag } from '@polkadot/react-components';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

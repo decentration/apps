@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { nextTick } from '@polkadot/util';
 
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 function useNextTickImpl (): boolean {
   const [isNextTick, setIsNextTick] = useState(false);

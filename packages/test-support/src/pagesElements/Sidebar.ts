@@ -3,7 +3,7 @@
 
 import { fireEvent, screen, within } from '@testing-library/react';
 
-import { JudgementTag } from './JudgementTag.js';
+import { JudgementTag } from './JudgementTag';
 
 export class Sidebar {
   public sidebar: HTMLElement;

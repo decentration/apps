@@ -4,7 +4,7 @@
 import { useCallback, useMemo } from 'react';
 import store from 'store';
 
-import { useApi } from './useApi.js';
+import { useApi } from './useApi';
 
 // create a chain-specific key for the local cache
 // FIXME Since we use generics, this cannot be a createNamedHook as of yet

@@ -13,8 +13,8 @@ import { Expander, styled } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 import { formatNumber } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
-import Message from './Message.js';
+import { useTranslation } from '../translate';
+import Message from './Message';
 
 export interface Props {
   className?: string;
@@ -83,7 +83,8 @@ function Messages ({ className = '', contract, contractAbi: { constructors, info
   }, [_onRefresh, contract, isUpdating, optInfo, trigger]);
 
   const _setMessageResult = useCallback(
-    (_messageIndex: number, _result?: ContractCallOutcome): void => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    (messageIndex: number, result?: ContractCallOutcome): void => {
       // ignore
     },
     []

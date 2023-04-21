@@ -9,8 +9,8 @@ import { InputBalance, Modal, TxButton } from '@polkadot/react-components';
 import { useApi } from '@polkadot/react-hooks';
 import { BN, BN_ZERO } from '@polkadot/util';
 
-import { useTranslation } from '../../translate.js';
-import SenderInfo from '../partials/SenderInfo.js';
+import { useTranslation } from '../../translate';
+import SenderInfo from '../partials/SenderInfo';
 
 interface Props {
   controllerId: string | null;

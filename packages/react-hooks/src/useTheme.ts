@@ -1,12 +1,12 @@
 // Copyright 2017-2023 @polkadot/react-hooks authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { ThemeDef } from './ctx/types.js';
+import type { ThemeDef } from './ctx/types';
 
 import { useContext, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 interface Theme {
   theme: ThemeDef['theme'];

@@ -32,7 +32,7 @@ function createWebpack (context, mode = 'production') {
 
   return {
     context,
-    entry: './src/index.tsx',
+    entry: ['@babel/polyfill', './src/index.tsx'],
     mode,
     module: {
       rules: [
@@ -55,14 +55,12 @@ function createWebpack (context, mode = 'production') {
         },
         {
           exclude: /(node_modules)/,
-          test: /\.(ts|tsx)$/,
+          test: /\.(js|mjs|ts|tsx)$/,
           use: [
+            require.resolve('thread-loader'),
             {
-              loader: require.resolve('ts-loader'),
-              options: {
-                configFile: 'tsconfig.webpack.json',
-                transpileOnly: true
-              }
+              loader: require.resolve('babel-loader'),
+              options: require('@polkadot/dev/config/babel-config-webpack.cjs')
             }
           ]
         }
@@ -146,9 +144,6 @@ function createWebpack (context, mode = 'production') {
     ].concat(plugins),
     resolve: {
       alias,
-      extensionAlias: {
-        '.js': ['.js', '.ts', '.tsx']
-      },
       extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx'],
       fallback: {
         assert: require.resolve('assert/'),

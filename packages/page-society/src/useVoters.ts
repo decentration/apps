@@ -3,7 +3,7 @@
 
 import type { ApiPromise } from '@polkadot/api';
 import type { DeriveSocietyCandidate } from '@polkadot/api-derive/types';
-import type { Voters } from './types.js';
+import type { Voters } from './types';
 
 import { useEffect, useState } from 'react';
 

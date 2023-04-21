@@ -9,7 +9,7 @@ import { styled } from '@polkadot/react-components';
 import { useApi } from '@polkadot/react-hooks';
 import { NodeName, NodeVersion } from '@polkadot/react-query';
 
-import { packageInfo } from '../packageInfo.js';
+import { packageInfo } from '../packageInfo';
 
 const uiInfo = `apps v${packageInfo.version.replace('-x', '')}`;
 

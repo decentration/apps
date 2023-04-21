@@ -1,16 +1,16 @@
 // Copyright 2017-2023 @polkadot/react-params authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Props, RawParam } from '../types.js';
+import type { Props, RawParam } from '../types';
 
 import React, { useCallback, useState } from 'react';
 
 import { Struct } from '@polkadot/types';
 import { isCodec } from '@polkadot/util';
 
-import Params from '../index.js';
-import Base from './Base.js';
-import useParamDefs from './useParamDefs.js';
+import Params from '../';
+import Base from './Base';
+import useParamDefs from './useParamDefs';
 
 function extractValues ({ isValid, value }: RawParam): RawParam[] | undefined {
   return (isValid && isCodec(value) && value instanceof Struct)
