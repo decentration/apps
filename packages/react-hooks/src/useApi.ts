@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 import { ApiCtx } from '@polkadot/react-api';
 
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 function useApiImpl (): ApiProps {
   return useContext(ApiCtx);

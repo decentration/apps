@@ -3,16 +3,16 @@
 
 import type { BlockNumber, Votes } from '@polkadot/types/interfaces';
 import type { BN } from '@polkadot/util';
-import type { CollectiveType } from './types.js';
+import type { CollectiveType } from './types';
 
 import { useMemo } from 'react';
 
 import { ApiPromise } from '@polkadot/api';
 import { isFunction } from '@polkadot/util';
 
-import { createNamedHook } from './createNamedHook.js';
-import { useApi } from './useApi.js';
-import { useBestNumber } from './useBestNumber.js';
+import { createNamedHook } from './createNamedHook';
+import { useApi } from './useApi';
+import { useBestNumber } from './useBestNumber';
 
 interface State {
   hasFailed: boolean;

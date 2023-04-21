@@ -9,7 +9,7 @@ import { getSlashProposalThreshold } from '@polkadot/apps-config';
 import { Button, Dropdown, Input, InputAddress, Modal, TxButton } from '@polkadot/react-components';
 import { useApi, useAvailableSlashes, useCollectiveInstance, useToggle } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

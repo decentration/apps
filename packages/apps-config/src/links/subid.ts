@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BN } from '@polkadot/util';
-import type { ExternalDef } from './types.js';
+import type { ExternalDef } from './types';
 
-import { externalSubidSVG } from '../ui/logos/external/index.js';
+import { externalSubidSVG } from '../ui/logos/external';
 
 export const SubId: ExternalDef = {
   chains: {

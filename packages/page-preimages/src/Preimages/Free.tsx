@@ -8,7 +8,7 @@ import React, { useMemo } from 'react';
 import { TxButton } from '@polkadot/react-components';
 import { useAccounts, useApi } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

@@ -11,8 +11,8 @@ import { useApi } from '@polkadot/react-hooks';
 import { BalanceFree } from '@polkadot/react-query';
 import { BN_ZERO } from '@polkadot/util';
 
-import { useTranslation } from '../../translate.js';
-import PoolInfo from '../partials/PoolInfo.js';
+import { useTranslation } from '../../translate';
+import PoolInfo from '../partials/PoolInfo';
 
 interface Props {
   className?: string;

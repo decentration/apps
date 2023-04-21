@@ -8,7 +8,7 @@ import React from 'react';
 
 import { bnToBn } from '@polkadot/util';
 
-import { styled } from './styled.js';
+import { styled } from './styled';
 
 interface Props {
   className?: string;

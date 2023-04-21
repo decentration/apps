@@ -7,7 +7,7 @@ import { useMemo } from 'react';
 
 import { createWsEndpoints } from '@polkadot/apps-config';
 
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 const endpoints = createWsEndpoints((k: string, v?: string) => v || k);
 

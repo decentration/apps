@@ -5,7 +5,7 @@ import type { KeyringSectionOption } from '@polkadot/ui-keyring/options/types';
 
 import React from 'react';
 
-import Dropdown from '../Dropdown.js';
+import Dropdown from '../Dropdown';
 
 export default function createHeader (option: KeyringSectionOption): React.ReactNode {
   return (

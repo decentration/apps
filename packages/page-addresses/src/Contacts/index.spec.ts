@@ -1,7 +1,5 @@
-// Copyright 2017-2023 @polkadot/page-addresses authors & contributors
+// Copyright 2017-2023 @polkadot/page-accounts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
-
-/// <reference types="@polkadot/dev-test/globals.d.ts" />
 
 import { screen } from '@testing-library/react';
 
@@ -9,10 +7,10 @@ import i18next from '@polkadot/react-components/i18n';
 import { aContactWithBalance } from '@polkadot/test-support/creation/contact';
 import { MemoryStore } from '@polkadot/test-support/keyring';
 import { Table } from '@polkadot/test-support/pagesElements';
-import { balance } from '@polkadot/test-support/utils';
+import { balance } from '@polkadot/test-support/utils/balance';
 import { keyring } from '@polkadot/ui-keyring';
 
-import { AddressesPage } from '../../test/pages/addressesPage.js';
+import { AddressesPage } from '../../test/pages/addressesPage';
 
 // FIXME isSplit Table
 describe.skip('Addresses page', () => {

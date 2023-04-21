@@ -1,13 +1,13 @@
 // Copyright 2017-2023 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Group } from './types.js';
+import type { Group } from './types';
 
 import React from 'react';
 
 import { Icon, styled } from '@polkadot/react-components';
 
-import Item from './Item.js';
+import Item from './Item';
 
 interface Props extends Group {
   className?: string;

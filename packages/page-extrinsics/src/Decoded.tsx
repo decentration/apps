@@ -11,7 +11,7 @@ import React, { useMemo } from 'react';
 import { Columar, Inspect as DecodedInspect, Output, styled } from '@polkadot/react-components';
 import { u8aToHex } from '@polkadot/util';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

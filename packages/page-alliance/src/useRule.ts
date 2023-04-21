@@ -3,11 +3,11 @@
 
 import type { Option } from '@polkadot/types';
 import type { PalletAllianceCid } from '@polkadot/types/lookup';
-import type { Rule } from './types.js';
+import type { Rule } from './types';
 
 import { createNamedHook, useApi, useCall } from '@polkadot/react-hooks';
 
-import { createCid } from './util.js';
+import { createCid } from './util';
 
 const OPT_RULE = {
   transform: (opt: Option<PalletAllianceCid>): Rule =>

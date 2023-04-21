@@ -10,8 +10,8 @@ import languageCache from '@polkadot/react-components/i18n/cache';
 import { useToggle } from '@polkadot/react-hooks';
 import { settings } from '@polkadot/ui-settings';
 
-import { useTranslation } from '../translate.js';
-import StringInput from './StringInput.js';
+import { useTranslation } from '../translate';
+import StringInput from './StringInput';
 
 type Progress = [[number, number, number], Record<string, [number, number, number]>];
 type Strings = Record<string, string>;
@@ -137,6 +137,7 @@ function doDownload (strings: Strings, withEmpty: boolean): void {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function progressDisplay ([done, total, _]: [number, number, number] = [0, 0, 0]): { done: number; progress: string; total: number } {
   return {
     done,

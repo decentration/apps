@@ -4,19 +4,19 @@
 import type { BitLength } from '@polkadot/react-components/types';
 import type { Registry, TypeDef } from '@polkadot/types/types';
 import type { BN } from '@polkadot/util';
-import type { Props } from '../types.js';
+import type { Props } from '../types';
 
 import React, { useCallback, useMemo } from 'react';
 
 import { Input, InputNumber } from '@polkadot/react-components';
 import { bnToBn, formatNumber, isUndefined } from '@polkadot/util';
 
-import Bare from './Bare.js';
+import Bare from './Bare';
 
 function getBitLength (registry: Registry, { type }: TypeDef): BitLength {
   try {
     return registry.createType(type as 'u32').bitLength() as BitLength;
-  } catch {
+  } catch (error) {
     return 32;
   }
 }

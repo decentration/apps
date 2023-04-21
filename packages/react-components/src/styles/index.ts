@@ -1,15 +1,15 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { ThemeProps } from '../types.js';
+import type { ThemeProps } from '../types';
 
 import { createGlobalStyle } from 'styled-components';
 
-import cssComponents from './components.js';
-import cssForm from './form.js';
-import cssMedia from './media.js';
-import cssSemantic from './semantic.js';
-import cssTheme from './theme.js';
+import cssComponents from './components';
+import cssForm from './form';
+import cssMedia from './media';
+import cssSemantic from './semantic';
+import cssTheme from './theme';
 
 interface Props {
   uiHighlight?: string;
@@ -309,8 +309,8 @@ export default createGlobalStyle<Props & ThemeProps>(({ theme, uiHighlight }: Pr
 
   .theme--dark,
   .theme--light {
-    .ui--Tabs .active .tabLinkText::after {
-      background: ${getHighlight(uiHighlight)};
+    .ui--Tabs .tabLinkActive .tabLinkText::after{
+        background: ${getHighlight(uiHighlight)};
     }
 
     .ui.primary.button,

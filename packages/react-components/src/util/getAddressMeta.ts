@@ -12,7 +12,7 @@ export function getAddressMeta (address: string, type: KeyringItemType | null = 
     const pair = keyring.getAddress(address, type);
 
     meta = pair && pair.meta;
-  } catch {
+  } catch (error) {
     // we could pass invalid addresses, so it may throw
   }
 

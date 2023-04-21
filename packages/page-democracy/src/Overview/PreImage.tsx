@@ -13,7 +13,7 @@ import { Available } from '@polkadot/react-query';
 import { BN, BN_ZERO, isString } from '@polkadot/util';
 import { blake2AsHex } from '@polkadot/util-crypto';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

@@ -9,7 +9,7 @@ import { CardSummary, IdentityIcon, styled, SummaryBox } from '@polkadot/react-c
 import { useApi } from '@polkadot/react-hooks';
 import { formatNumber } from '@polkadot/util';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface LinkHeader {
   author: string | null;

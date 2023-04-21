@@ -1,11 +1,9 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { RefObject } from 'react';
+import { RefObject, useCallback, useEffect } from 'react';
 
-import { useCallback, useEffect } from 'react';
-
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 function isRefClicked (refs: React.RefObject<HTMLDivElement>[], e: MouseEvent): boolean {
   return refs.some((r) =>

@@ -1,14 +1,14 @@
 // Copyright 2017-2023 @polkadot/app-referenda authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Member as MemberType } from '../types.js';
+import type { Member as MemberType } from '../types';
 
 import React from 'react';
 
 import { CardSummary, SummaryBox } from '@polkadot/react-components';
 import { formatNumber } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

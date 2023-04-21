@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 import { MarkError, Table } from '@polkadot/react-components';
 import { formatNumber } from '@polkadot/util';
 
-import Event from './Event.js';
-import { useTranslation } from './translate.js';
+import Event from './Event';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

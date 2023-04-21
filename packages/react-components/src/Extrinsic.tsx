@@ -11,9 +11,9 @@ import Params from '@polkadot/react-params';
 import { getTypeDef } from '@polkadot/types/create';
 import { isUndefined, objectSpread } from '@polkadot/util';
 
-import InputExtrinsic from './InputExtrinsic/index.js';
-import paramComponents from './Params/index.js';
-import { balanceCalls, balanceCallsOverrides } from './constants.js';
+import { balanceCalls, balanceCallsOverrides } from './constants';
+import InputExtrinsic from './InputExtrinsic';
+import paramComponents from './Params';
 
 interface Props {
   className?: string;

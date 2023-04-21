@@ -10,8 +10,8 @@ import { ExpanderScroll } from '@polkadot/react-components';
 import { FormatBalance } from '@polkadot/react-query';
 import { BN_TEN, formatNumber } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
-import ReferendumVote from './ReferendumVote.js';
+import { useTranslation } from '../translate';
+import ReferendumVote from './ReferendumVote';
 
 interface Props {
   change: BN;

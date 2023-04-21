@@ -1,14 +1,14 @@
 // Copyright 2017-2023 @polkadot/app-contracts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { CallResult } from './types.js';
+import type { CallResult } from './types';
 
 import React from 'react';
 
 import { Button, IdentityIcon, Output, styled } from '@polkadot/react-components';
 import valueToText from '@polkadot/react-params/valueToText';
 
-import MessageSignature from '../shared/MessageSignature.js';
+import MessageSignature from '../shared/MessageSignature';
 
 interface Props {
   className?: string;

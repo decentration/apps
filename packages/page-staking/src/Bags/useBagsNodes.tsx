@@ -3,13 +3,13 @@
 
 import type { Option } from '@polkadot/types';
 import type { PalletBagsListListNode } from '@polkadot/types/lookup';
-import type { BagMap } from './types.js';
+import type { BagMap } from './types';
 
 import { useEffect, useState } from 'react';
 
 import { createNamedHook, useCall } from '@polkadot/react-hooks';
 
-import useQueryModule from './useQueryModule.js';
+import useQueryModule from './useQueryModule';
 
 const MULTI_OPTS = {
   transform: (opts: Option<PalletBagsListListNode>[]): BagMap =>

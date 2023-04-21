@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-import Input from './Input.js';
+import Input from './Input';
 
 interface Props {
   autoFocus?: boolean;

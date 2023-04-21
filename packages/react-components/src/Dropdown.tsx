@@ -8,8 +8,8 @@ import { Button as SUIButton, Dropdown as SUIDropdown } from 'semantic-ui-react'
 
 import { isUndefined } from '@polkadot/util';
 
-import Labelled from './Labelled.js';
-import { styled } from './styled.js';
+import Labelled from './Labelled';
+import { styled } from './styled';
 
 interface Props<Option extends DropdownItemProps> {
   allowAdd?: boolean;
@@ -29,7 +29,7 @@ interface Props<Option extends DropdownItemProps> {
   onChange?: (value: any) => void;
   onClose?: () => void;
   onSearch?: (filteredOptions: any[], query: string) => Option[];
-  options: (React.ReactNode | Option)[];
+  options: (React.ReactNode | Option | unknown)[];
   placeholder?: string;
   renderLabel?: (item: any) => any;
   searchInput?: { autoFocus: boolean };

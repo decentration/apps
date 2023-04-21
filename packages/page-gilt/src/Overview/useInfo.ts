@@ -3,7 +3,7 @@
 
 import type { u32 } from '@polkadot/types';
 import type { ActiveGiltsTotal, BalanceOf } from '@polkadot/types/interfaces';
-import type { GiltInfo, QueueTotal } from './types.js';
+import type { GiltInfo, QueueTotal } from './types';
 
 import { useMemo } from 'react';
 

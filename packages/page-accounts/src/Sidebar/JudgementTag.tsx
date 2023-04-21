@@ -7,7 +7,7 @@ import React, { useMemo } from 'react';
 
 import { AddressSmall, Menu, Popup, Tag } from '@polkadot/react-components';
 
-import { getJudgementColor } from '../util.js';
+import { getJudgementColor } from '../util';
 
 interface Props {
   judgement: Judgement

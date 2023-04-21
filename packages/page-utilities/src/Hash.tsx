@@ -7,7 +7,7 @@ import { Input, Output, Static } from '@polkadot/react-components';
 import { hexToU8a, isHex, stringToU8a } from '@polkadot/util';
 import { blake2AsHex } from '@polkadot/util-crypto';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": "..",
     "outDir": "./build",
-    "rootDir": "./src",
-    /* Since this is a forced-by-electron-CJS-module, we have to switch this off */
-    "verbatimModuleSyntax": false
+    "rootDir": "./src"
   },
   "references": []
 }

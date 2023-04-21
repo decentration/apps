@@ -5,7 +5,7 @@ import React from 'react';
 
 import { useApi, useCall } from '@polkadot/react-hooks';
 
-import FormatBalance from './FormatBalance.js';
+import FormatBalance from './FormatBalance';
 
 interface Props {
   children?: React.ReactNode;

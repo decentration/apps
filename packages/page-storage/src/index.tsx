@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { AppProps as Props } from '@polkadot/react-components/types';
-import type { QueryTypes } from './types.js';
+import type { QueryTypes } from './types';
 
 import React, { useCallback, useState } from 'react';
 
 import { styled } from '@polkadot/react-components';
 
-import Selection from './Selection/index.js';
-import Queries from './Queries.js';
+import Queries from './Queries';
+import Selection from './Selection';
 
 function StorageApp ({ basePath, className = '' }: Props): React.ReactElement<Props> {
   const [queue, setQueue] = useState<QueryTypes[]>([]);

@@ -7,7 +7,7 @@ import { AddressRow, Button, Modal, Password, PasswordStrength } from '@polkadot
 import { keyring } from '@polkadot/ui-keyring';
 import { nextTick } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;
@@ -65,7 +65,7 @@ function ChangePass ({ address, className = '', onClose }: Props): React.ReactEl
           }
 
           account.decodePkcs8(oldPass);
-        } catch {
+        } catch (error) {
           setOldPass((state: OldPass) => ({ ...state, isOldValid: false }));
           setIsBusy(false);
 
@@ -74,7 +74,7 @@ function ChangePass ({ address, className = '', onClose }: Props): React.ReactEl
 
         try {
           keyring.encryptAccount(account, newPass1.password);
-        } catch {
+        } catch (error) {
           setNewPass2((state: NewPass) => ({ ...state, isValid: false }));
           setIsBusy(false);
 

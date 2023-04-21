@@ -1,10 +1,11 @@
 // Copyright 2017-2023 @polkadot/test-supports authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { DeriveBalancesAll, DeriveStakingAccount } from '@polkadot/api-derive/types';
-import type { UseAccountInfo } from '@polkadot/react-hooks/types';
-import type { KeyringJson$Meta } from '@polkadot/ui-keyring/types';
-import type { AccountOverrides as ContactOverrides, Override } from '../types.js';
+import { DeriveBalancesAll, DeriveStakingAccount } from '@polkadot/api-derive/types';
+import { UseAccountInfo } from '@polkadot/react-hooks/types';
+import { KeyringJson$Meta } from '@polkadot/ui-keyring/types';
+
+import { AccountOverrides as ContactOverrides, Override } from '../types';
 
 export const aContact = (): ContactOverrides => ({});
 

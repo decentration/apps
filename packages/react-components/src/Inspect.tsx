@@ -8,9 +8,9 @@ import React, { useMemo } from 'react';
 import { useApi } from '@polkadot/react-hooks';
 import { u8aToHex } from '@polkadot/util';
 
-import Output from './Output.js';
-import { styled } from './styled.js';
-import { useTranslation } from './translate.js';
+import Output from './Output';
+import { styled } from './styled';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

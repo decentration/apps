@@ -5,8 +5,8 @@ import React, { useRef } from 'react';
 
 import { Tabs } from '@polkadot/react-components';
 
-import Preimages from './Preimages/index.js';
-import { useTranslation } from './translate.js';
+import Preimages from './Preimages';
+import { useTranslation } from './translate';
 
 interface Props {
   basePath: string;

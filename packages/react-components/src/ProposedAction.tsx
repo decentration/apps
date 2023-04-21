@@ -8,8 +8,8 @@ import React from 'react';
 
 import { formatNumber, isString, isUndefined } from '@polkadot/util';
 
-import CallExpander from './CallExpander.js';
-import { useTranslation } from './translate.js';
+import CallExpander from './CallExpander';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

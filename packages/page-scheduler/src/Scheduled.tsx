@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BlockNumber } from '@polkadot/types/interfaces';
-import type { ScheduledExt } from './types.js';
+import type { ScheduledExt } from './types';
 
 import React from 'react';
 

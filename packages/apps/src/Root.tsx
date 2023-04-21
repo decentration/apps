@@ -12,8 +12,8 @@ import { ApiCtxRoot } from '@polkadot/react-api';
 import { ApiStatsCtxRoot, BlockAuthorsCtxRoot, BlockEventsCtxRoot, KeyringCtxRoot, QueueCtxRoot, WindowSizeCtxRoot } from '@polkadot/react-hooks';
 import { settings } from '@polkadot/ui-settings';
 
-import Apps from './Apps.js';
-import { darkTheme, lightTheme } from './themes.js';
+import Apps from './Apps';
+import { darkTheme, lightTheme } from './themes';
 
 interface Props {
   isElectron: boolean;

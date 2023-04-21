@@ -3,7 +3,7 @@
 
 import electron from 'electron';
 
-import { IpcMainHandler } from './ipc-main-handler.js';
+import { IpcMainHandler } from './ipc-main-handler';
 
 export const registerIpcHandler = (ipcHandler: IpcMainHandler): void => {
   for (const [channel, listener] of Object.entries(ipcHandler)) {

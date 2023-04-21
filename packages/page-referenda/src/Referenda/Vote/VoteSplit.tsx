@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BN } from '@polkadot/util';
-import type { VoteTypeProps as Props } from '../types.js';
+import type { VoteTypeProps as Props } from '../types';
 
 import React, { useEffect, useState } from 'react';
 
 import { Modal, VoteValue } from '@polkadot/react-components';
 
-import { useTranslation } from '../../translate.js';
+import { useTranslation } from '../../translate';
 
 function VoteSplit ({ accountId, id, onChange }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();

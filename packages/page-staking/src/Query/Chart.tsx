@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/app-staking authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { LineData } from './types.js';
+import type { LineData } from './types';
 
 import React, { useMemo } from 'react';
 

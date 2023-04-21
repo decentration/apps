@@ -9,8 +9,8 @@ import { AddressMini, AddressSmall, Columar, LinkExternal, Table } from '@polkad
 import { useApi, useToggle } from '@polkadot/react-hooks';
 import { isFunction } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
-import Council from './Council.js';
+import { useTranslation } from '../translate';
+import Council from './Council';
 
 interface Props {
   className?: string;

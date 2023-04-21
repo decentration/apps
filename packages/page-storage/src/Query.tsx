@@ -6,7 +6,7 @@ import type { ComponentRenderer, DefaultProps, RenderFn } from '@polkadot/react-
 import type { ConstValue } from '@polkadot/react-components/InputConsts/types';
 import type { Option, Raw } from '@polkadot/types';
 import type { Registry } from '@polkadot/types/types';
-import type { QueryTypes, StorageModuleQuery } from './types.js';
+import type { QueryTypes, StorageModuleQuery } from './types';
 
 import React, { useCallback, useMemo } from 'react';
 
@@ -15,7 +15,7 @@ import { Button, Labelled, styled } from '@polkadot/react-components';
 import { useApi } from '@polkadot/react-hooks';
 import valueToText from '@polkadot/react-params/valueToText';
 import { getSiName } from '@polkadot/types/metadata/util';
-import { unwrapStorageType } from '@polkadot/types/util';
+import { unwrapStorageType } from '@polkadot/types/primitive/StorageKey';
 import { compactStripLength, isU8a, u8aToHex, u8aToString } from '@polkadot/util';
 
 interface Props {
@@ -26,7 +26,7 @@ interface Props {
 
 interface CacheInstance {
   Component: React.ComponentType<any>;
-  render: RenderFn;
+  render: (createComponent: RenderFn) => React.ComponentType<any>;//RenderFn;
   refresh: (swallowErrors: boolean) => React.ComponentType<any>;
 }
 
@@ -68,15 +68,15 @@ function queryTypeToString (registry: Registry, { creator: { meta: { modifier, t
 function createComponent (type: string, Component: React.ComponentType<any>, defaultProps: DefaultProps, renderHelper: ComponentRenderer): { Component: React.ComponentType<any>; render: (createComponent: RenderFn) => React.ComponentType<any>; refresh: (swallowErrors: boolean) => React.ComponentType<any> } {
   return {
     Component,
+    // In order to replace the default component during runtime we can provide a RenderFn to create a new 'plugged' component
+    render: (createComponent: RenderFn): React.ComponentType<any> =>
+      renderHelper(createComponent, defaultProps),
     // In order to modify the parameters which are used to render the default component, we can use this method
     refresh: (): React.ComponentType<any> =>
       renderHelper(
         (value: unknown) => <pre>{valueToText(type, value as null)}</pre>,
         defaultProps
       ),
-    // In order to replace the default component during runtime we can provide a RenderFn to create a new 'plugged' component
-    render: (createComponent: RenderFn): React.ComponentType<any> =>
-      renderHelper(createComponent, defaultProps)
   };
 }
 

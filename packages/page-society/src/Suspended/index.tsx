@@ -11,8 +11,8 @@ import React, { useRef } from 'react';
 import { Table } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../translate.js';
-import Suspension from './Suspension.js';
+import { useTranslation } from '../translate';
+import Suspension from './Suspension';
 
 interface Props {
   className?: string;

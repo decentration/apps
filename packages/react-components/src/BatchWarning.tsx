@@ -6,8 +6,8 @@ import React from 'react';
 import { useApi } from '@polkadot/react-hooks';
 import { isFunction } from '@polkadot/util';
 
-import MarkWarning from './MarkWarning.js';
-import { useTranslation } from './translate.js';
+import MarkWarning from './MarkWarning';
+import { useTranslation } from './translate';
 
 function BatchWarning (): React.ReactElement | null {
   const { t } = useTranslation();

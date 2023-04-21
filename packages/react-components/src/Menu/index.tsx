@@ -1,14 +1,14 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { BaseProps, MenuType } from './types.js';
+import type { BaseProps, MenuType } from './types';
 
 import React from 'react';
 
-import { styled } from '../styled.js';
-import Divider from './Divider.js';
-import Header from './Header.js';
-import Item from './Item.js';
+import { styled } from '../styled';
+import Divider from './Divider';
+import Header from './Header';
+import Item from './Item';
 
 function Base ({ children, className = '' }: BaseProps): React.ReactElement<BaseProps> {
   return (

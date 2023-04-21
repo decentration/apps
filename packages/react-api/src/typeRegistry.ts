@@ -3,4 +3,6 @@
 
 import { TypeRegistry } from '@polkadot/types/create';
 
-export const registry = new TypeRegistry();
+const registry = new TypeRegistry();
+
+export default registry;

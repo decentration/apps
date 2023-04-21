@@ -4,14 +4,14 @@
 // TODO: Lots of duplicated code between this and withObservable, surely there is a better way of doing this?
 
 import type { Observable, OperatorFunction } from 'rxjs';
-import type { CallState } from '../types.js';
-import type { DefaultProps, HOC, Options, RenderFn } from './types.js';
+import type { CallState } from '../types';
+import type { DefaultProps, HOC, Options, RenderFn } from './types';
 
 import React from 'react';
 import { catchError, map, of } from 'rxjs';
 
-import echoTransform from '../transform/echo.js';
-import { intervalObservable, isEqual, triggerChange } from '../util/index.js';
+import echoTransform from '../transform/echo';
+import { intervalObservable, isEqual, triggerChange } from '../util';
 
 interface State extends CallState {
   subscriptions: { unsubscribe: () => void }[];

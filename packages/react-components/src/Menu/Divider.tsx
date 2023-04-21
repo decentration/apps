@@ -1,11 +1,11 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { DividerProps } from './types.js';
+import type { DividerProps } from './types';
 
 import React from 'react';
 
-import { styled } from '../styled.js';
+import { styled } from '../styled';
 
 function Divider ({ className = '' }: DividerProps): React.ReactElement {
   return (

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BN } from '@polkadot/util';
-import type { InfoState } from './types.js';
+import type { InfoState } from './types';
 
 import React, { useEffect, useMemo, useState } from 'react';
 
@@ -10,7 +10,7 @@ import { Input, InputAddress, InputBalance, InputNumber, Modal } from '@polkadot
 import { useApi } from '@polkadot/react-hooks';
 import { BN_ZERO } from '@polkadot/util';
 
-import { useTranslation } from '../../translate.js';
+import { useTranslation } from '../../translate';
 
 interface Props {
   assetIds: BN[];

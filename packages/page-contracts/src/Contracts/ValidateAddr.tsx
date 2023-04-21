@@ -10,7 +10,7 @@ import { InfoForInput } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   address?: string | null;
@@ -28,7 +28,7 @@ function ValidateAddr ({ address, onChange }: Props): React.ReactElement<Props> 
     try {
       keyring.decodeAddress(address || '');
       setIsAddress(true);
-    } catch {
+    } catch (error) {
       setIsAddress(false);
     }
   }, [address]);

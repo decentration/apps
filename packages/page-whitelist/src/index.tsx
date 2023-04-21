@@ -5,8 +5,8 @@ import React, { useRef } from 'react';
 
 import { Tabs } from '@polkadot/react-components';
 
-import Hashes from './Hashes/index.js';
-import { useTranslation } from './translate.js';
+import Hashes from './Hashes';
+import { useTranslation } from './translate';
 
 interface Props {
   basePath: string;
