@@ -11,7 +11,7 @@ import { styled } from '@polkadot/react-components/styled';
 import { useApi } from '@polkadot/react-hooks';
 import { formatBalance, isString } from '@polkadot/util';
 
-import { useTranslation } from './translate';
+import { useTranslation } from './translate.js';
 
 interface Props {
   children?: React.ReactNode;
@@ -70,6 +70,7 @@ function applyFormat (value: Compact<any> | BN | string | number, [decimals, tok
 
     return <>{major}.<span className='ui--FormatBalance-postfix'>{minor}</span><span className='ui--FormatBalance-unit'>{unit}{unit ? unitPost : ` ${unitPost}`}</span>{labelPost || ''}</>;
   }
+
   return createElement(prefix, postfix, unitPost, labelPost, isShort);
 }
 

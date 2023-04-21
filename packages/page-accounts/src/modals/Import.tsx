@@ -4,7 +4,7 @@
 import type { Dispatch, SetStateAction } from 'react';
 import type { KeyringPair, KeyringPair$Json } from '@polkadot/keyring/types';
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
-import type { ModalProps } from '../types';
+import type { ModalProps } from '../types.js';
 
 import React, { useCallback, useMemo, useState } from 'react';
 
@@ -13,8 +13,8 @@ import { useApi } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';
 import { assert, nextTick, u8aToString } from '@polkadot/util';
 
-import { useTranslation } from '../translate';
-import ExternalWarning from './ExternalWarning';
+import { useTranslation } from '../translate.js';
+import ExternalWarning from './ExternalWarning.js';
 
 interface Props extends ModalProps {
   className?: string;
@@ -27,7 +27,7 @@ interface PassState {
   password: string;
 }
 
-const acceptedFormats = ['application/json', 'text/plain'].join(', ');
+const acceptedFormats = ['application/json', 'text/plain'];
 
 function parseFile (file: Uint8Array, setError: Dispatch<SetStateAction<string | null>>, isEthereum: boolean, genesisHash?: string | null): KeyringPair | null {
   try {
@@ -142,14 +142,12 @@ function Import ({ className = '', onClose, onStatusChange }: Props): React.Reac
           />
         </Modal.Columns>
         <Modal.Columns>
-          <>
-            {error && (
-              <MarkError content={error} />
-            )}
-            {differentGenesis && (
-              <MarkWarning content={t<string>('The network from which this account was originally generated is different than the network you are currently connected to. Once imported ensure you toggle the "allow on any network" option for the account to keep it visible on the current network.')} />
-            )}
-          </>
+          {error && (
+            <MarkError content={error} />
+          )}
+          {differentGenesis && (
+            <MarkWarning content={t<string>('The network from which this account was originally generated is different than the network you are currently connected to. Once imported ensure you toggle the "allow on any network" option for the account to keep it visible on the current network.')} />
+          )}
           <ExternalWarning />
         </Modal.Columns>
       </Modal.Content>

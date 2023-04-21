@@ -3,11 +3,11 @@
 
 import { useCallback, useMemo, useState } from 'react';
 
-import { createNamedHook } from './createNamedHook';
-import { useCacheKey } from './useCacheKey';
+import { createNamedHook } from './createNamedHook.js';
+import { useCacheKey } from './useCacheKey.js';
 
 // hook for favorites with local storage
-function useFavoritesImpl (storageKeyBase: string): [string[], (address: string) => void, (favorites: string[])=>void] {
+function useFavoritesImpl (storageKeyBase: string): [string[], (address: string) => void] {
   const [getCache, setCache] = useCacheKey<string[]>(storageKeyBase);
   const [favorites, setFavorites] = useState<string[]>(() => getCache() || []);
 
@@ -23,8 +23,8 @@ function useFavoritesImpl (storageKeyBase: string): [string[], (address: string)
   );
 
   return useMemo(
-    () => [favorites, toggleFavorite, setFavorites],
-    [favorites, toggleFavorite, setFavorites]
+    () => [favorites, toggleFavorite],
+    [favorites, toggleFavorite]
   );
 }
 
