@@ -5,7 +5,7 @@ import type { DeriveAccountInfo } from '@polkadot/api-derive/types';
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
 import type { ModalProps as Props } from '../types';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { AddressRow, Button, Input, InputAddress, Modal } from '@polkadot/react-components';
 import { useApi, useCall, useFavorites } from '@polkadot/react-hooks';
@@ -111,6 +111,7 @@ function Create ({ onClose, onStatusChange }: Props): React.ReactElement<Props> 
         status.message = (error as Error).message;
       }
       toggleFavorite(address);
+      console.log(favorites);
       onStatusChange(status);
       onClose();
     },

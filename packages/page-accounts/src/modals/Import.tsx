@@ -142,13 +142,15 @@ function Import ({ className = '', onClose, onStatusChange }: Props): React.Reac
           />
         </Modal.Columns>
         <Modal.Columns>
-          {error && (
-            <MarkError content={error} />
-          )}
-          {differentGenesis && (
-            <MarkWarning content={t<string>('The network from which this account was originally generated is different than the network you are currently connected to. Once imported ensure you toggle the "allow on any network" option for the account to keep it visible on the current network.')} />
-          )}
-          <ExternalWarning />
+          <>
+            {error && (
+              <MarkError content={error} />
+            )}
+            {differentGenesis && (
+              <MarkWarning content={t<string>('The network from which this account was originally generated is different than the network you are currently connected to. Once imported ensure you toggle the "allow on any network" option for the account to keep it visible on the current network.')} />
+            )}
+            <ExternalWarning />
+          </>
         </Modal.Columns>
       </Modal.Content>
       <Modal.Actions>

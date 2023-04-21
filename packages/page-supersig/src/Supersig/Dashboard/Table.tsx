@@ -1,11 +1,11 @@
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
-import type { ThemeDef } from '@polkadot/react-components/types';
+import type { ThemeProps } from '@polkadot/react-components/types';
 import type { KeyringAddress } from '@polkadot/ui-keyring/types';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import type { Call } from '@polkadot/types/interfaces';
 import Transfer from '@polkadot/app-accounts/modals/Transfer';
-import { IconLink, Input, InputExtrinsic,  Call as CallDisplay, Expander, ExpanderScroll, AddressInfo, AddressSmall, Button, ChainLock, ExpandButton, Forget, Icon, LinkExternal, Menu, Popup, Tags, InputAddress, InputBalance } from '@polkadot/react-components';
+import { IconLink, Input, Call as CallDisplay, Expander, ExpanderScroll, AddressInfo, AddressSmall, Button, ChainLock, ExpandButton, Forget, Icon, LinkExternal, Menu, Popup, Tags, InputAddress, InputBalance } from '@polkadot/react-components';
 import { useApi, useCall, useBalancesAll, useDeriveAccountInfo, useToggle } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';
 import { BN_ZERO, formatNumber, isFunction, u8aToHex } from '@polkadot/util';
@@ -30,7 +30,7 @@ const isEditable = true;
 
 function Address ({ address, className = '', filter, isFavorite, toggleFavorite }: Props): React.ReactElement<Props> | null {
   const { t } = useTranslation();
-  const { theme } = useContext(ThemeContext as React.Context<ThemeDef>);
+  const { theme } = useContext(ThemeContext as React.Context<ThemeProps>);
   const api = useApi();
   const info = useDeriveAccountInfo(address);
   const balancesAll = useBalancesAll(address);
@@ -280,7 +280,7 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
                 />
                 <div style={{margin: '5px'}}>
                 <IconLink
-                    icon='fa-magnifying-glass'
+                    icon='nfc-magnifying-glass'
                     label={t<string>('extrinsic')}
                     href={detailslink}
                   />
@@ -309,8 +309,8 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
   }
 
   interface IMemberItem {
-    id?: Uint8Array | String;
-    balance?: String;
+    id?: Uint8Array | string;
+    balance?: string;
   }
 
   const BalanceDetail = () : React.ReactElement => {

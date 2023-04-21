@@ -20,7 +20,7 @@ interface Props {
   label?: React.ReactNode;
   type?: string;
   isMnemonic?: boolean;
-  value?: React.ReactNode | null;
+  value?: React.ReactNode | null | unknown;
 }
 
 const NOOP = () => undefined;

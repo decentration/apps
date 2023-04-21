@@ -51,7 +51,7 @@ function AddressSmall ({ children, className = '', defaultName, onClickName, ove
             className='shortAddress'
             data-testid='short-address'
           >
-            {value}
+            {value?.toString()}
           </div>
         )}
       </span>
