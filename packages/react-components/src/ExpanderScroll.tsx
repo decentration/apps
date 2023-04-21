@@ -1,13 +1,13 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Props as ExpanderProps } from './Expander.js';
+import type { Props as ExpanderProps } from './Expander';
 
 import React, { useCallback, useMemo } from 'react';
 
-import Table from './Table/index.js';
-import Expander from './Expander.js';
-import { styled } from './styled.js';
+import Expander from './Expander';
+import { styled } from './styled';
+import Table from './Table';
 
 interface Props extends ExpanderProps {
   empty?: string;
@@ -58,12 +58,12 @@ function ExpanderScroll ({ children, className, empty, renderChildren, summary }
 
 const StyledExpander = styled(Expander)`
   .tableContainer {
-    overflow-y: scroll;
+    overflow-y: auto;
     display: block;
     margin: 0 0 0 auto;
     max-height: 13.75rem;
-    max-width: 25rem;
-    overflow-x: hidden;
+    // max-width: 25rem;
+    // overflow-x: auto;
   }
 `;
 

@@ -2,15 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { DispatchError } from '@polkadot/types/interfaces';
-import type { Props as BaseProps } from '../types.js';
+import type { Props as BaseProps } from '../types';
 
 import React, { useEffect, useState } from 'react';
 
 import { Input } from '@polkadot/react-components';
 
-import { useTranslation } from '../translate.js';
-import Static from './Static.js';
-import Unknown from './Unknown.js';
+import { useTranslation } from '../translate';
+import Static from './Static';
+import Unknown from './Unknown';
 
 interface Details {
   details?: string | null;

@@ -9,9 +9,9 @@ import * as Chart from 'react-chartjs-2';
 
 import { isBn, objectSpread } from '@polkadot/util';
 
-import ErrorBoundary from '../ErrorBoundary.js';
-import { styled } from '../styled.js';
-import { alphaColor } from './utils.js';
+import ErrorBoundary from '../ErrorBoundary';
+import { styled } from '../styled';
+import { alphaColor } from './utils';
 
 export interface Props {
   colors?: (string | undefined)[];

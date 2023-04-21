@@ -8,7 +8,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { AddressMini, Button, InputAddress, Modal, Static, styled, TxButton } from '@polkadot/react-components';
 import { useApi, useToggle } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

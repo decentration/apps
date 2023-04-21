@@ -7,8 +7,8 @@ import React from 'react';
 
 import { AddressSmall } from '@polkadot/react-components';
 
-import Description from './Description.js';
-import { useTranslation } from './translate.js';
+import Description from './Description';
+import { useTranslation } from './translate';
 
 interface Props {
   curator: Codec;

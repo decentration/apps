@@ -1,10 +1,9 @@
 // Copyright 2017-2023 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore Warned on by nodenext resolution (while package does build in bundler mode)
 import type { KeyringJson, KeyringStore } from '@polkadot/ui-keyring/types';
-import type { AccountStoreApi } from '../api/account-store-api.js';
+
+import { AccountStoreApi } from '../api/account-store-api';
 
 export class RemoteElectronStore implements KeyringStore {
   readonly #accountStore: AccountStoreApi;

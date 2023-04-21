@@ -5,7 +5,7 @@ import type { OverrideBundleDefinition } from '@polkadot/types/types';
 
 import eqDefs from '@equilab/definitions';
 
-import { createCustomAccount, u64FromCurrency } from './equilibrium.js';
+import { createCustomAccount, u64FromCurrency } from './equilibrium';
 
 const { genshiro } = eqDefs;
 

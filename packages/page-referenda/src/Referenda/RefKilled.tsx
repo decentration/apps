@@ -1,11 +1,11 @@
 // Copyright 2017-2023 @polkadot/app-referenda authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { ReferendumProps as Props } from '../types.js';
+import type { ReferendumProps as Props } from '../types';
 
 import React, { useMemo } from 'react';
 
-import RefEnd from './RefEnd.js';
+import RefEnd from './RefEnd';
 
 function RefOther ({ value: { info } }: Props): React.ReactElement<Props> {
   const when = useMemo(

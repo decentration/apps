@@ -7,9 +7,9 @@ import React from 'react';
 
 import { InputAddress, Modal, TxButton } from '@polkadot/react-components';
 
-import { truncateTitle } from '../helpers/index.js';
-import { useBounties } from '../hooks/index.js';
-import { useTranslation } from '../translate.js';
+import { truncateTitle } from '../helpers';
+import { useBounties } from '../hooks';
+import { useTranslation } from '../translate';
 
 interface Props {
   curatorId: AccountId;

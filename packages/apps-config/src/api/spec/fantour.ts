@@ -5,7 +5,7 @@
 /* eslint-disable sort-keys */
 /* eslint-disable camelcase */
 
-import type { OverrideBundleDefinition } from '@polkadot/types/types';
+import { OverrideBundleDefinition } from '@polkadot/types/types';
 
 const definitions: OverrideBundleDefinition = {
   types: [

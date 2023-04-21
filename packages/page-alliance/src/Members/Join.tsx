@@ -1,14 +1,14 @@
 // Copyright 2017-2023 @polkadot/app-alliance authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Member, Unscrupulous } from '../types.js';
+import type { Member, Unscrupulous } from '../types';
 
 import React, { useMemo, useState } from 'react';
 
 import { InputAddress, InputBalance, Modal, TxButton } from '@polkadot/react-components';
 import { useAccounts, useApi } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

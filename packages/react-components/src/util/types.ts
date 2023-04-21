@@ -1,8 +1,9 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { RegistrarIndex } from '@polkadot/types/interfaces/identity/types';
-import type { DisplayedJudgement } from '../types.js';
+import { RegistrarIndex } from '@polkadot/types/interfaces/identity/types';
+
+import { DisplayedJudgement } from '../types';
 
 export interface DropdownOption {
   className?: string;

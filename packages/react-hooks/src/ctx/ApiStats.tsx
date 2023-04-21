@@ -3,12 +3,12 @@
 
 import type { ApiPromise } from '@polkadot/api';
 import type { ProviderStats } from '@polkadot/rpc-provider/types';
-import type { ApiStats } from './types.js';
+import type { ApiStats } from './types';
 
 import React, { useCallback } from 'react';
 
-import { useApi } from '../useApi.js';
-import { useTimer } from '../useTimer.js';
+import { useApi } from '../useApi';
+import { useTimer } from '../useTimer';
 
 interface Props {
   children?: React.ReactNode;

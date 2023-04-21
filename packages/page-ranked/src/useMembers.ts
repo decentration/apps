@@ -5,13 +5,13 @@ import type { Option } from '@polkadot/types';
 import type { AccountId32 } from '@polkadot/types/interfaces';
 import type { PalletRankedCollectiveMemberRecord } from '@polkadot/types/lookup';
 import type { BN } from '@polkadot/util';
-import type { Member, PalletColl } from './types.js';
+import type { Member, PalletColl } from './types';
 
 import { useMemo } from 'react';
 
 import { createNamedHook, useApi, useCall } from '@polkadot/react-hooks';
 
-import useMembersIds from './useMemberIds.js';
+import useMembersIds from './useMemberIds';
 
 interface Result {
   memberIds: string[];

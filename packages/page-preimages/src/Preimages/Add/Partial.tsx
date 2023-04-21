@@ -5,7 +5,7 @@ import type { ApiPromise } from '@polkadot/api';
 import type { SubmittableExtrinsic } from '@polkadot/api/types';
 import type { BN } from '@polkadot/util';
 import type { HexString } from '@polkadot/util/types';
-import type { HashState } from './types.js';
+import type { HashState } from './types';
 
 import React, { useCallback, useState } from 'react';
 
@@ -14,7 +14,7 @@ import { useApi } from '@polkadot/react-hooks';
 import { BN_ZERO } from '@polkadot/util';
 import { blake2AsHex } from '@polkadot/util-crypto';
 
-import { useTranslation } from '../../translate.js';
+import { useTranslation } from '../../translate';
 
 interface Props {
   className?: string;

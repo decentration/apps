@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BN } from '@polkadot/util';
-import type { ExternalDef } from './types.js';
+import type { ExternalDef } from './types';
 
-import { externalKodadotPNG } from '../ui/logos/external/index.js';
+import { externalKodadotPNG } from '../ui/logos/external';
 
 const getNetwork = (_chain: string) => {
   const chain = _chain === 'kusama' ? 'rmrk' : _chain;

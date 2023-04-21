@@ -10,7 +10,7 @@ import { Button, Extrinsic, Icon, InputNumber, styled, Toggle, TxButton } from '
 import { useApi, useToggle } from '@polkadot/react-hooks';
 import { BN_ZERO, isFunction } from '@polkadot/util';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

@@ -5,7 +5,7 @@ import React, { useCallback, useState } from 'react';
 
 import { Button, Input, Popup } from '@polkadot/react-components';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

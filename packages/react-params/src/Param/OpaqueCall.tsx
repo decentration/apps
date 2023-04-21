@@ -2,12 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Bytes } from '@polkadot/types';
-import type { Props } from '../types.js';
+import type { Props } from '../types';
 
 import React from 'react';
 
-import CallDisplay from './Call.js';
-import Unknown from './Unknown.js';
+import CallDisplay from './Call';
+import Unknown from './Unknown';
 
 function OpaqueCall (props: Props): React.ReactElement<Props> {
   if (!props.isDisabled) {

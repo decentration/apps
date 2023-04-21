@@ -8,7 +8,7 @@ import React from 'react';
 
 import { Bonded } from '@polkadot/react-query';
 
-import { renderProvided } from './Balance.js';
+import { renderProvided } from './Balance';
 
 export interface Props {
   bonded?: BN | BN[];

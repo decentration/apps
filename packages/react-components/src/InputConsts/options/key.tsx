@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ConstantCodec } from '@polkadot/types/metadata/decorate/types';
-import type { DropdownOption, DropdownOptions } from '../../util/types.js';
+import type { DropdownOption, DropdownOptions } from '../../util/types';
 
 import React from 'react';
 

@@ -3,11 +3,11 @@
 
 import type { Signer, SignerResult } from '@polkadot/api/types';
 import type { Registry, SignerPayloadJSON } from '@polkadot/types/types';
-import type { QrState } from '../types.js';
+import type { QrState } from '../types';
 
 import { blake2AsU8a } from '@polkadot/util-crypto';
 
-export class QrSigner implements Signer {
+export default class QrSigner implements Signer {
   readonly #registry: Registry;
   readonly #setState: (state: QrState) => void;
 

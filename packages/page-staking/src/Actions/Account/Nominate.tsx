@@ -2,15 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BN } from '@polkadot/util';
-import type { SortedTargets } from '../../types.js';
-import type { NominateInfo } from '../partials/types.js';
+import type { SortedTargets } from '../../types';
+import type { NominateInfo } from '../partials/types';
 
 import React, { useState } from 'react';
 
 import { Modal, styled, TxButton } from '@polkadot/react-components';
 
-import { useTranslation } from '../../translate.js';
-import NominatePartial from '../partials/Nominate.js';
+import { useTranslation } from '../../translate';
+import NominatePartial from '../partials/Nominate';
 
 interface Props {
   className?: string;

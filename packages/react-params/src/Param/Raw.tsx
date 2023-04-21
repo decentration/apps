@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Codec } from '@polkadot/types/types';
-import type { Props } from '../types.js';
+import type { Props } from '../types';
 
 import React, { useCallback, useState } from 'react';
 
 import { Input } from '@polkadot/react-components';
 
-import Bare from './Bare.js';
+import Bare from './Bare';
 
 function Raw ({ className = '', defaultValue: { value }, isDisabled, isError, label, onChange, onEnter, onEscape, withLabel }: Props): React.ReactElement<Props> {
   const [isValid, setIsValid] = useState(false);

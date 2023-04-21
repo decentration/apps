@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { DeriveStakingOverview } from '@polkadot/api-derive/types';
-import type { SortedTargets } from '../types.js';
+import type { SortedTargets } from '../types';
 
 import React from 'react';
 
@@ -10,7 +10,7 @@ import SummarySession from '@polkadot/app-explorer/SummarySession';
 import { CardSummary, styled, SummaryBox } from '@polkadot/react-components';
 import { formatNumber } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

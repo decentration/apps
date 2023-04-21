@@ -7,7 +7,7 @@ import React, { useMemo } from 'react';
 
 import { useApi, useCall } from '@polkadot/react-hooks';
 
-import Elapsed from './Elapsed.js';
+import Elapsed from './Elapsed';
 
 interface Props {
   children?: React.ReactNode;

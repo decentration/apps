@@ -3,9 +3,9 @@
 
 import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
 
-import { createNamedHook } from './createNamedHook.js';
-import { useApi } from './useApi.js';
-import { useCall } from './useCall.js';
+import { createNamedHook } from './createNamedHook';
+import { useApi } from './useApi';
+import { useCall } from './useCall';
 
 /**
  * Gets the account full balance information

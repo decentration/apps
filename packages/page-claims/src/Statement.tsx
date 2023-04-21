@@ -7,8 +7,8 @@ import React from 'react';
 
 import { styled } from '@polkadot/react-components';
 
-import { useTranslation } from './translate.js';
-import { getStatement } from './util.js';
+import { useTranslation } from './translate';
+import { getStatement } from './util';
 
 export interface Props {
   className?: string;

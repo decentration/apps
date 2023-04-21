@@ -5,10 +5,10 @@ import React, { useRef } from 'react';
 
 import { Tabs } from '@polkadot/react-components';
 
-import Bounties from './Bounties.js';
-import { useTranslation } from './translate.js';
+import Bounties from './Bounties';
+import { useTranslation } from './translate';
 
-export { default as useCounter } from './useCounter.js';
+export { default as useCounter } from './useCounter';
 
 interface Props {
   basePath: string;

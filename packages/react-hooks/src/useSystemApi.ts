@@ -5,8 +5,8 @@ import type { ApiPromise } from '@polkadot/api';
 
 import { useMemo } from 'react';
 
-import { createNamedHook } from './createNamedHook.js';
-import { useApi } from './useApi.js';
+import { createNamedHook } from './createNamedHook';
+import { useApi } from './useApi';
 
 function useSystemApiImpl (): ApiPromise | undefined {
   const { api, apiRelay } = useApi();

@@ -9,7 +9,7 @@ import { InputAddress, Labelled, styled } from '@polkadot/react-components';
 import { Nonce } from '@polkadot/react-query';
 import { BN_ZERO } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

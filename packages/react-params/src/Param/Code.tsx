@@ -1,14 +1,14 @@
 // Copyright 2017-2023 @polkadot/react-params authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Props } from '../types.js';
+import type { Props } from '../types';
 
 import React, { useCallback, useState } from 'react';
 
 import { isWasm } from '@polkadot/util';
 
-import Bytes from './Bytes.js';
-import BytesFile from './File.js';
+import Bytes from './Bytes';
+import BytesFile from './File';
 
 function Code ({ className = '', defaultValue, isDisabled, isError, label, onChange, onEnter, onEscape, registry, type, withLabel }: Props): React.ReactElement<Props> {
   const [isValid, setIsValid] = useState(false);

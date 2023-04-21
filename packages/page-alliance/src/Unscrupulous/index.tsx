@@ -1,15 +1,15 @@
 // Copyright 2017-2023 @polkadot/app-alliance authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Unscrupulous as UnscrupulousType } from '../types.js';
+import type { Unscrupulous as UnscrupulousType } from '../types';
 
 import React, { useRef } from 'react';
 
 import { Table } from '@polkadot/react-components';
 
-import { useTranslation } from '../translate.js';
-import Account from './Account.js';
-import Website from './Website.js';
+import { useTranslation } from '../translate';
+import Account from './Account';
+import Website from './Website';
 
 interface Props {
   className?: string;

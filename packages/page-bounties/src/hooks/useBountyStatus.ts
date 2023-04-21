@@ -1,14 +1,13 @@
 // Copyright 2017-2023 @polkadot/app-bounties authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { BountyStatus } from '@polkadot/types/interfaces';
-import type { BountyStatusType } from '../types.js';
+import type { BountyStatusType } from '@polkadot/app-bounties/types';
 
 import { useCallback } from 'react';
 
+import { getBountyStatus } from '@polkadot/app-bounties/helpers';
 import { createNamedHook } from '@polkadot/react-hooks';
-
-import { getBountyStatus } from '../helpers/index.js';
+import { BountyStatus } from '@polkadot/types/interfaces';
 
 function useBountyStatusImpl (status: BountyStatus): BountyStatusType {
   const updateStatus = useCallback(() => getBountyStatus(status), [status]);

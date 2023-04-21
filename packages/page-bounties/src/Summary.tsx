@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/app-bounties authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { BountyApi } from './hooks/useBounties.js';
+import type { BountyApi } from './hooks/useBounties';
 
 import React, { useMemo } from 'react';
 
@@ -10,7 +10,7 @@ import { useTreasury } from '@polkadot/react-hooks';
 import { FormatBalance } from '@polkadot/react-query';
 import { BN, formatNumber } from '@polkadot/util';
 
-import { useTranslation } from './translate.js';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

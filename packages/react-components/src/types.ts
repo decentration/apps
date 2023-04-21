@@ -6,8 +6,10 @@ import type { WithTranslation } from 'react-i18next';
 import type { SubmittableExtrinsic } from '@polkadot/api/types';
 import type { Abi } from '@polkadot/api-contract';
 import type { ThemeDef } from '@polkadot/react-hooks/ctx/types';
-import type { AccountId, AccountIndex, Address, Index } from '@polkadot/types/interfaces';
-import type { ActionStatus, TxCallback, TxFailedCallback } from './Status/types.js';
+import type { AccountId, Index } from '@polkadot/types/interfaces';
+import type { ActionStatus, TxCallback, TxFailedCallback } from './Status/types';
+
+import { AccountIndex, Address } from '@polkadot/types/interfaces';
 
 export interface BareProps {
   children?: React.ReactNode;

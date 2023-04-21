@@ -3,13 +3,13 @@
 
 import type { PalletReferendaDeposit } from '@polkadot/types/lookup';
 import type { BN } from '@polkadot/util';
-import type { Referendum, ReferendumProps as Props } from '../types.js';
+import type { Referendum, ReferendumProps as Props } from '../types';
 
 import React, { useMemo } from 'react';
 
-import Deposits from './Deposits/index.js';
-import RefEnd from './RefEnd.js';
-import { unwrapDeposit } from './util.js';
+import Deposits from './Deposits';
+import RefEnd from './RefEnd';
+import { unwrapDeposit } from './util';
 
 interface Expanded {
   decision: PalletReferendaDeposit | null;

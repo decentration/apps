@@ -1,7 +1,7 @@
 // Copyright 2017-2023 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Option } from '../settings/types.js';
+import type { Option } from '../settings/types';
 
 interface BaseOption {
   dnslink?: string;

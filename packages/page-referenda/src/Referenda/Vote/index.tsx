@@ -5,17 +5,17 @@ import type { TFunction } from 'i18next';
 import type { ApiPromise } from '@polkadot/api';
 import type { Preimage } from '@polkadot/react-hooks/types';
 import type { BN } from '@polkadot/util';
-import type { PalletVote, TrackInfo } from '../../types.js';
+import type { PalletVote, TrackInfo } from '../../types';
 
 import React, { useMemo, useState } from 'react';
 
 import { Button, Modal, ProposedAction, styled, ToggleGroup, TxButton, VoteAccount } from '@polkadot/react-components';
 import { useAccounts, useApi, useToggle } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../../translate.js';
-import VoteAbstain from './VoteAbstain.js';
-import VoteSplit from './VoteSplit.js';
-import VoteStandard from './VoteStandard.js';
+import { useTranslation } from '../../translate';
+import VoteAbstain from './VoteAbstain';
+import VoteSplit from './VoteSplit';
+import VoteStandard from './VoteStandard';
 
 interface Props {
   className?: string;

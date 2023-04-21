@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BN } from '@polkadot/util';
-import type { ExternalDef } from './types.js';
+import type { ExternalDef } from './types';
 
-import { externalSubscanPNG } from '../ui/logos/external/index.js';
+import { externalSubscanPNG } from '../ui/logos/external';
 
 export const Subscan: ExternalDef = {
   chains: {
@@ -14,7 +14,6 @@ export const Subscan: ExternalDef = {
     Altair: 'altair',
     Arctic: 'arctic',
     Astar: 'astar',
-    'Bajun Kusama': 'bajun',
     Basilisk: 'basilisk',
     Bifrost: 'bifrost-kusama',
     'Bifrost Polkadot': 'bifrost',
@@ -23,11 +22,13 @@ export const Subscan: ExternalDef = {
     ChainX: 'chainx',
     Clover: 'clv',
     'Composable Finance': 'composable',
-    Crab2: 'crab',
+    'Crab Parachain': 'crab-parachain',
     Crust: 'crust',
     'Crust Maxwell': 'maxwell',
     'Crust Shadow': 'shadow',
+    'Dali Testnet (Rococo Relay)': 'dali',
     Darwinia: 'darwinia',
+    'Darwinia Crab': 'crab',
     'Darwinia Parachain': 'darwinia-parachain',
     'DataHighway Tanganika Kusama Parachain': 'datahighway',
     Dock: 'dock',
@@ -44,15 +45,15 @@ export const Subscan: ExternalDef = {
     'KILT Spiritnet': 'spiritnet',
     Karura: 'karura',
     Khala: 'khala',
+    Kulupu: 'kulupu',
     Kusama: 'kusama',
     Litmus: 'litmus',
     'Mangata Kusama Mainnet': 'mangatax',
+    'Mangata Public Testnet': 'mangata-testnet',
     'Moonbase Alpha': 'moonbase',
     Moonbeam: 'moonbeam',
     Moonriver: 'moonriver',
     'Nodle Parachain': 'nodle',
-    'OriginTrail Parachain': 'origintrail',
-    'OriginTrail Parachain Testnet': 'origintrail-testnet',
     Pangolin: 'pangolin',
     'Pangolin Parachain': 'pangolin-parachain',
     Pangoro: 'pangoro',
