@@ -87,7 +87,7 @@ export function getDispatchError (dispatchError: DispatchError): string {
       const error = dispatchError.registry.findMetaError(mod);
 
       message = `${error.section}.${error.name}`;
-    } catch {
+    } catch (error) {
       // swallow
     }
   } else if (dispatchError.isToken) {

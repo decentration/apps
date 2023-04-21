@@ -2,18 +2,18 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ApiPromise } from '@polkadot/api';
-import type { PromiseResult, QueryableStorageEntry } from '@polkadot/api/types';
+import type { PromiseRpcResult, PromiseResult, QueryableStorageEntry } from '@polkadot/api/types';
 import type { StorageEntryTypeLatest } from '@polkadot/types/interfaces';
 import type { AnyFunction, Codec } from '@polkadot/types/types';
-import type { CallOptions, CallParam, CallParams } from './types.js';
-import type { MountedRef } from './useIsMountedRef.js';
+import type { CallOptions, CallParam, CallParams } from './types';
+import type { MountedRef } from './useIsMountedRef';
 
 import { useEffect, useRef, useState } from 'react';
 
 import { isFunction, isNull, isUndefined, nextTick } from '@polkadot/util';
 
-import { useApi } from './useApi.js';
-import { useIsMountedRef } from './useIsMountedRef.js';
+import { useApi } from './useApi';
+import { useIsMountedRef } from './useIsMountedRef';
 
 type VoidFn = () => void;
 
@@ -44,7 +44,7 @@ type QueryFn =
 
 type CallFn = (...params: unknown[]) => Promise<VoidFn>;
 
-export type TrackFn = PromiseResult<AnyFunction> | QueryFn;
+export type TrackFn = PromiseRpcResult<AnyFunction> | PromiseResult<AnyFunction> | QueryFn;
 
 export interface Tracker {
   error: Error | null;

@@ -1,9 +1,7 @@
 // Copyright 2017-2023 @polkadot/app-files authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { CSSProperties } from 'react';
-
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import { styled } from '@polkadot/react-components';
 

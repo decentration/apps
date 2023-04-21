@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { createNamedHook, useApi, useCall } from '@polkadot/react-hooks';
 import { BN_ZERO } from '@polkadot/util';
 
-import { approxChanges } from './util.js';
+import { approxChanges } from './util';
 
 interface Result {
   changeAye: BN;

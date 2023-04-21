@@ -3,7 +3,7 @@
 
 import type { PalletConvictionVotingTally, PalletRankedCollectiveTally, PalletRankedCollectiveVoteRecord } from '@polkadot/types/lookup';
 import type { BN } from '@polkadot/util';
-import type { PalletVote } from '../types.js';
+import type { PalletVote } from '../types';
 
 import React, { useCallback, useMemo } from 'react';
 
@@ -11,8 +11,8 @@ import { AddressMini, Expander } from '@polkadot/react-components';
 import { FormatBalance } from '@polkadot/react-query';
 import { formatNumber } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
-import useVotes from './useVotes.js';
+import { useTranslation } from '../translate';
+import useVotes from './useVotes';
 
 interface Props {
   className?: string;

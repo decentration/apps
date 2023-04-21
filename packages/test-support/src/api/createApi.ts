@@ -3,8 +3,7 @@
 
 import { ApiPromise } from '@polkadot/api';
 import { WsProvider } from '@polkadot/rpc-provider';
-
-import { SUBSTRATE_PORT } from '../substrate/index.js';
+import { SUBSTRATE_PORT } from '@polkadot/test-support/substrate';
 
 export async function createApi (port: number = SUBSTRATE_PORT): Promise<ApiPromise> {
   process.env.NODE_ENV = 'test';

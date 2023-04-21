@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { KeyringSectionOption } from '@polkadot/ui-keyring/options/types';
-import type { Option } from './types.js';
+import type { Option } from './types';
 
 import React from 'react';
 
 import { keyring } from '@polkadot/ui-keyring';
 import { decodeAddress } from '@polkadot/util-crypto';
 
-import KeyPair from './KeyPair.js';
+import KeyPair from './KeyPair';
 
 export default function createItem (option: KeyringSectionOption, isUppercase = true): Option | null {
   const allowedLength = keyring.keyring.type === 'ethereum'

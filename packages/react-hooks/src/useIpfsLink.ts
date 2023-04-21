@@ -3,7 +3,7 @@
 
 import { useMemo } from 'react';
 
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 interface Result {
   ipfsHash: string;

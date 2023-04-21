@@ -9,7 +9,7 @@ import { Bar } from 'react-chartjs-2';
 
 import { bnToBn, isNumber } from '@polkadot/util';
 
-import { alphaColor } from './utils.js';
+import { alphaColor } from './utils';
 
 interface Value {
   colors: string[];

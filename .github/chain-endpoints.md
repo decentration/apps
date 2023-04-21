@@ -1,6 +1,6 @@
 ---
-title: Unavailable chain endpoints {{ date | date('ddd, MMM D YYYY, h:mm:ss a') }}
-labels: ['ci']
+title: Unavailable chain endpoints
+labels: ['ci', '@apps-config']
 ---
 
 cc @polkadot-js/notifications

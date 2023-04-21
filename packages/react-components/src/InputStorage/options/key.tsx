@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { StorageEntry } from '@polkadot/types/primitive/types';
-import type { DropdownOption, DropdownOptions } from '../../util/types.js';
+import type { DropdownOption, DropdownOptions } from '../../util/types';
 
 import React from 'react';
 
 import { ApiPromise } from '@polkadot/api';
 import { getSiName } from '@polkadot/types/metadata/util';
-import { unwrapStorageType } from '@polkadot/types/util';
+import { unwrapStorageType } from '@polkadot/types/primitive/StorageKey';
 
 export function keyOptions (api: ApiPromise, sectionName: string): DropdownOptions {
   const section = api.query[sectionName];

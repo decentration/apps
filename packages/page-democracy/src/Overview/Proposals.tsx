@@ -8,8 +8,8 @@ import React, { useRef } from 'react';
 import { Table } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 
-import { useTranslation } from '../translate.js';
-import ProposalDisplay from './Proposal.js';
+import { useTranslation } from '../translate';
+import ProposalDisplay from './Proposal';
 
 interface Props {
   className?: string;

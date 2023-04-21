@@ -10,7 +10,7 @@ import { CallExpander } from '@polkadot/react-components';
 import { useApi, useCall } from '@polkadot/react-hooks';
 import { Holder } from '@polkadot/react-params';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

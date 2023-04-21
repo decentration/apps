@@ -5,7 +5,7 @@ import React from 'react';
 
 import { InputFile } from '@polkadot/react-components';
 
-import Bare from './Bare.js';
+import Bare from './Bare';
 
 interface Props {
   className?: string;

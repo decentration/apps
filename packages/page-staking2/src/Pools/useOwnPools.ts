@@ -3,13 +3,13 @@
 
 import type { Option } from '@polkadot/types';
 import type { PalletNominationPoolsPoolMember } from '@polkadot/types/lookup';
-import type { OwnPool, OwnPoolBase } from './types.js';
+import type { OwnPool, OwnPoolBase } from './types';
 
 import { useMemo } from 'react';
 
 import { createNamedHook, useAccounts, useApi, useCall } from '@polkadot/react-hooks';
 
-import { createAccounts } from './usePoolAccounts.js';
+import { createAccounts } from './usePoolAccounts';
 
 const OPT_MULTI = {
   transform: ([[ids], opts]: [[string[]], Option<PalletNominationPoolsPoolMember>[]]): OwnPoolBase[] => {

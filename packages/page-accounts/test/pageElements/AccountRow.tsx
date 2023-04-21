@@ -3,7 +3,7 @@
 
 import { within } from '@testing-library/react';
 
-import { Row } from '@polkadot/test-support/pagesElements';
+import { Row } from '@polkadot/test-support/pagesElements/Row';
 
 export class AccountRow extends Row {
   async assertParentAccountName (expectedParentAccount: string): Promise<void> {

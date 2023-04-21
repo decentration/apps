@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { DefinitionCallNamed } from '@polkadot/types/types';
-import type { DropdownOptions } from '../util/types.js';
+import type { DropdownOptions } from '../util/types';
 
 import React from 'react';
 
-import Dropdown from '../Dropdown.js';
+import Dropdown from '../Dropdown';
 
 interface Props {
   className?: string;

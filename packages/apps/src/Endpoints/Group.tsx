@@ -1,13 +1,13 @@
 // Copyright 2017-2023 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { Group } from './types.js';
+import type { Group } from './types';
 
 import React, { useCallback, useMemo } from 'react';
 
 import { Icon, styled } from '@polkadot/react-components';
 
-import Network from './Network.js';
+import Network from './Network';
 
 interface Props {
   affinities: Record<string, string>;

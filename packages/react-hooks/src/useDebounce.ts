@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { useIsMountedRef } from './useIsMountedRef.js';
+import { useIsMountedRef } from './useIsMountedRef';
 
 const DEFAULT_DELAY = 250;
 

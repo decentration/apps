@@ -3,8 +3,8 @@
 
 import React from 'react';
 
-import CopyButton from './CopyButton.js';
-import Labelled from './Labelled.js';
+import CopyButton from './CopyButton';
+import Labelled from './Labelled';
 
 interface Props {
   children?: React.ReactNode;

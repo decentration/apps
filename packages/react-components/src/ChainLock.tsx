@@ -6,9 +6,9 @@ import React, { useCallback, useMemo } from 'react';
 import { useApi } from '@polkadot/react-hooks';
 import { chains } from '@polkadot/ui-settings/defaults/chains';
 
-import { styled } from './styled.js';
-import Toggle from './Toggle.js';
-import { useTranslation } from './translate.js';
+import { styled } from './styled';
+import Toggle from './Toggle';
+import { useTranslation } from './translate';
 
 interface Props {
   className?: string;

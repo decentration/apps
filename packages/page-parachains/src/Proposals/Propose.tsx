@@ -9,7 +9,7 @@ import { Button, Input, InputAddress, InputBalance, InputFile, InputNumber, Inpu
 import { useApi } from '@polkadot/react-hooks';
 import { BN, BN_TEN, BN_THOUSAND, BN_ZERO, compactAddLength } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { INumber } from '@polkadot/types/types';
-import type { PalletVote } from '../../types.js';
-import type { LockResult } from './types.js';
+import type { PalletVote } from '../../types';
+import type { LockResult } from './types';
 
 import { useMemo } from 'react';
 

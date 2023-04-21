@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ChartOptions } from 'chart.js';
-import type { ChartContents } from './types.js';
+import type { ChartContents } from './types';
 
 import React from 'react';
 

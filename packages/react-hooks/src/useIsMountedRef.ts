@@ -3,7 +3,7 @@
 
 import { useEffect, useRef } from 'react';
 
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 export type MountedRef = React.MutableRefObject<boolean>;
 

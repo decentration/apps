@@ -4,17 +4,17 @@
 import type { ApiPromise } from '@polkadot/api';
 import type { DeriveEraPoints, DeriveEraRewards, DeriveStakerReward } from '@polkadot/api-derive/types';
 import type { EraIndex } from '@polkadot/types/interfaces';
-import type { StakerState } from './types.js';
+import type { StakerState } from './types';
 
 import { useEffect, useState } from 'react';
 
 import { BN_ZERO } from '@polkadot/util';
 
-import { createNamedHook } from './createNamedHook.js';
-import { useApi } from './useApi.js';
-import { useCall } from './useCall.js';
-import { useIsMountedRef } from './useIsMountedRef.js';
-import { useOwnStashIds } from './useOwnStashes.js';
+import { createNamedHook } from './createNamedHook';
+import { useApi } from './useApi';
+import { useCall } from './useCall';
+import { useIsMountedRef } from './useIsMountedRef';
+import { useOwnStashIds } from './useOwnStashes';
 
 interface State {
   allRewards?: Record<string, DeriveStakerReward[]> | null;

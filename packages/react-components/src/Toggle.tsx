@@ -3,7 +3,7 @@
 
 import React, { useCallback } from 'react';
 
-import { styled } from './styled.js';
+import { styled } from './styled';
 
 interface Props {
   className?: string;

@@ -8,7 +8,7 @@ import React from 'react';
 import { AddressMini, CallExpander, MarkError, MarkWarning } from '@polkadot/react-components';
 import { ZERO_ACCOUNT } from '@polkadot/react-hooks/useWeight';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   className?: string;

@@ -13,7 +13,7 @@ import { getTypeDef } from '@polkadot/types/create';
 import jsonrpc from '@polkadot/types/interfaces/jsonrpc';
 import { isNull } from '@polkadot/util';
 
-import { useTranslation } from '../translate.js';
+import { useTranslation } from '../translate';
 
 interface Props {
   queueRpc: QueueTxRpcAdd;

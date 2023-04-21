@@ -7,8 +7,8 @@ import React, { useMemo } from 'react';
 
 import { useParaEndpoints } from '@polkadot/react-hooks';
 
-import ChainImg from './ChainImg.js';
-import { styled } from './styled.js';
+import ChainImg from './ChainImg';
+import { styled } from './styled';
 
 interface Props {
   className?: string;

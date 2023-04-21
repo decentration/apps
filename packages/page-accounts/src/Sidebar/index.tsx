@@ -3,7 +3,7 @@
 
 import React, { useCallback, useState } from 'react';
 
-import Sidebar from './Sidebar.js';
+import Sidebar from './Sidebar';
 
 interface Props {
   children: React.ReactNode;

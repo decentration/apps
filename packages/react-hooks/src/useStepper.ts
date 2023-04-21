@@ -3,7 +3,7 @@
 
 import { useCallback, useMemo, useState } from 'react';
 
-import { createNamedHook } from './createNamedHook.js';
+import { createNamedHook } from './createNamedHook';
 
 type Result = [number, () => void, () => void, (step: number) => void];
 

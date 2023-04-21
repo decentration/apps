@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ActionStatusBase } from '@polkadot/react-components/Status/types';
-import type { DirFile, FileInfo, SaveFile } from './types.js';
 
 import FileSaver from 'file-saver';
 import React, { useCallback, useRef, useState } from 'react';
@@ -10,9 +9,10 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Badge, Button, CopyButton, Icon, styled, Table } from '@polkadot/react-components';
 import { useQueue } from '@polkadot/react-hooks';
 
-import { useFiles } from './hooks.js';
-import { useTranslation } from './translate.js';
-import UploadModal from './UploadModal.js';
+import { useFiles } from './hooks';
+import { useTranslation } from './translate';
+import { DirFile, FileInfo, SaveFile } from './types';
+import UploadModal from './UploadModal';
 
 const MCopyButton = styled(CopyButton)`
   .copySpan {
@@ -194,7 +194,7 @@ function CrustFiles ({ className }: Props): React.ReactElement<Props> {
         wFiles.setFiles([...fitter, ...filterOld]);
         _onImportResult(t<string>('Import Success'), 'success');
       };
-    } catch {
+    } catch (e) {
       _onImportResult(t<string>('file content error'), 'error');
     }
   }, [wFiles, _onImportResult, t]);
