@@ -1,19 +1,19 @@
 // Copyright 2017-2023 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountId } from '@polkadot/types/interfaces';
+import type { AccountId, AccountIndex, Address } from '@polkadot/types/interfaces';
 
 import React, { useCallback } from 'react';
 
 import { useToggle } from '@polkadot/react-hooks';
 
-import EditButton from './EditButton';
-import Input from './Input';
-import { styled } from './styled';
-import Tags from './Tags';
+import EditButton from './EditButton.js';
+import Input from './Input.js';
+import { styled } from './styled.js';
+import Tags from './Tags.js';
 
 export interface RowProps {
-  address?: AccountId | string | null | any;
+  address?: AccountId | AccountIndex | Address | string | null;
   buttons?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;

@@ -5,12 +5,12 @@ import React from 'react';
 
 import { useWindowColumns } from '@polkadot/react-hooks';
 
-import { styled } from '../styled';
-import Body from './Body';
-import Column from './Column';
-import Foot from './Foot';
-import Head from './Head';
-import Row from './Row';
+import { styled } from '../styled.js';
+import Column from './Column/index.js';
+import Row from './Row/index.js';
+import Body from './Body.js';
+import Foot from './Foot.js';
+import Head from './Head.js';
 
 interface Props {
   children?: React.ReactNode;
@@ -19,7 +19,7 @@ interface Props {
   emptySpinner?: React.ReactNode;
   filter?: React.ReactNode;
   footer?: React.ReactNode;
-  header?: any;//([React.ReactNode?, string?, number?, (() => void)?] | false | null | undefined)[];
+  header?: ([React.ReactNode?, string?, number?, (() => void)?] | false | null | undefined)[];
   headerChildren?: React.ReactNode;
   isFixed?: boolean;
   isInline?: boolean;
@@ -125,7 +125,7 @@ const StyledDiv = styled.div`
     border-collapse: collapse;
     border-spacing: 0;
     max-width: 100%;
-    overflow: auto;
+    overflow: hidden;
     position: relative;
     width: 100%;
     z-index: 1;

@@ -1,18 +1,18 @@
 // Copyright 2017-2023 @polkadot/app-staking authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { AccountId } from '@polkadot/types/interfaces';
+import type { AccountId, AccountIndex, Address } from '@polkadot/types/interfaces';
 import type { KeyringItemType } from '@polkadot/ui-keyring/types';
 import type { BN } from '@polkadot/util';
 
 import React from 'react';
 
-import AccountName from './AccountName';
-import BalanceDisplay from './Balance';
-import BondedDisplay from './Bonded';
-import IdentityIcon from './IdentityIcon';
-import LockedVote from './LockedVote';
-import { styled } from './styled';
+import IdentityIcon from './IdentityIcon/index.js';
+import AccountName from './AccountName.js';
+import BalanceDisplay from './Balance.js';
+import BondedDisplay from './Bonded.js';
+import LockedVote from './LockedVote.js';
+import { styled } from './styled.js';
 
 interface Props {
   balance?: BN | BN[];
@@ -29,7 +29,7 @@ interface Props {
   onNameClick?: () => void;
   summary?: React.ReactNode;
   type?: KeyringItemType;
-  value?: AccountId | string | null | Uint8Array | any;
+  value?: AccountId | AccountIndex | Address | string | null | Uint8Array;
   withAddress?: boolean;
   withBalance?: boolean;
   withBonded?: boolean;
