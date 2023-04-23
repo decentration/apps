@@ -2,11 +2,12 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Snippet } from '@polkadot/app-js/types';
+import type  {SemanticCOLORS, SemanticSIZES} from 'semantic-ui-react/dist/commonjs/generic'
 
 const label = {
   children: 'Storage',
-  color: 'blue',
-  size: 'tiny'
+  color: 'blue' as SemanticCOLORS,
+  size: 'tiny' as SemanticSIZES
 };
 
 export const storageGetInfo: Snippet = {

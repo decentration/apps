@@ -31,7 +31,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   const [allAddresses, setAllAddresses] = useState<string[]>([]);
   const supersig_nonce = useCall(api.query.supersig?.nonceSupersig);
 
-  const headerRef = useRef([
+  const headerRef = useRef<([React.ReactNode?, string?, number?] | false)[]>([
     [t('Supersig collectives'), 'start', 2],
     [t('live proposals'), 'number'],
     [t('balance of (members)'), 'number'],
