@@ -11,7 +11,7 @@ interface Props {
   children?: React.ReactNode;
   className?: string;
   filter?: React.ReactNode;
-  header?: (false | null | undefined | HeaderDef)[];
+  header?: (string | false | null | undefined | HeaderDef)[];
   isEmpty: boolean;
 }
 

@@ -17,7 +17,7 @@ import IdentityIcon from '@polkadot/react-components/IdentityIcon';
 import { FormatBalance } from '@polkadot/react-query';
 import { decodeAddress } from '@polkadot/util-crypto';
 import { largeNumSum } from '../../util';
-
+// import '../../augment-api-rpc';
 interface Props {
   address: string;
   className?: string;
