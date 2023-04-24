@@ -13,6 +13,7 @@ import Address from './Table';
 import Summary from './Summary';
 import { largeNumSum } from '../../util';
 import { encodeAddress } from '@polkadot/util-crypto';
+import type { __AugmentedRpc } from 'supersig-types/dist/interfaces/augment-supersig-rpc';
 
 type SortedAddress = { address: string; isFavorite: boolean };
 
@@ -27,7 +28,8 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   const [totalProposalCnt, setTotalProposalCnt] = useState<number>(0);
   const [totalBalance, setTotalBalance] = useState('');
   const isLoading = useLoadingDelay();
-  const {api} = useApi();
+  const { api } = useApi() 
+  // as unknown as { api: CustomApi };
   const [allAddresses, setAllAddresses] = useState<string[]>([]);
   const supersig_nonce = useCall(api.query.supersig?.nonceSupersig);
 
@@ -40,7 +42,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
     [undefined, 'media--1400', 2],
     []
   ]);
-
+  
   useEffect((): void => {
     getSuperSigAddress();
   }, [api, supersig_nonce]);
@@ -84,6 +86,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
       var account = encodeAddress(supersig_concat);
       try{
         let members: any[] = await (await api.rpc.superSig.listMembers(account)).toArray();
+
         if(members.length > 0){
           addressArray.push(account.toString());
         }
