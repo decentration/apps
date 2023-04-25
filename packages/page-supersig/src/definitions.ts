@@ -1,5 +1,6 @@
 // import OverrideRpcDefinition from '@polkadot/types/interfaces/jsonrpc';
 
+// eslint-disable-next-line header/header
 import type { DefinitionRpc, DefinitionRpcSub } from '@polkadot/types/types';
 // import type { DefinitionRpc}
 
@@ -10,44 +11,44 @@ export const superSigRpc: Record<string, Record<string, DefinitionRpc | Definiti
       params: [
         {
           name: 'supersig_id',
-          type: 'AccountId',
+          type: 'AccountId'
         },
         {
           name: 'call_id',
-          type: 'CallId',
-        },
+          type: 'CallId'
+        }
       ],
-      type: 'FetchProposalState',
+      type: 'FetchProposalState'
     },
     getUserSupersigs: {
       description: 'Get supersigs associated to the user.',
       params: [
         {
           name: 'user_account',
-          type: 'AccountId',
-        },
+          type: 'AccountId'
+        }
       ],
-      type: 'Vec<SupersigId>',
+      type: 'Vec<SupersigId>'
     },
     listMembers: {
       description: 'List members of the supersig',
       params: [
         {
           name: 'supersig_id',
-          type: 'AccountId',
-        },
+          type: 'AccountId'
+        }
       ],
-      type: 'Vec<(AccountId, Role)>',
+      type: 'Vec<(AccountId, Role)>'
     },
     listProposals: {
       description: 'List proposals associated to a supersig',
       params: [
         {
           name: 'supersig_id',
-          type: 'AccountId',
-        },
+          type: 'AccountId'
+        }
       ],
-      type: 'FetchListProposals',
-    },
-  },
+      type: 'FetchListProposals'
+    }
+  }
 };

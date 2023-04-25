@@ -1,8 +1,8 @@
 // Copyright 2017-2023 @polkadot/app-js authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+import type { SemanticCOLORS, SemanticSIZES } from 'semantic-ui-react/dist/commonjs/generic';
 import type { Snippet } from '@polkadot/app-js/types';
-import type  {SemanticCOLORS, SemanticSIZES} from 'semantic-ui-react/dist/commonjs/generic'
 
 const label = {
   children: 'Storage',

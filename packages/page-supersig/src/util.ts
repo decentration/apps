@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 // Copyright 2017-2022 @polkadot/app-democracy authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+// eslint-disable-next-line header/header
 import type { VoteThreshold } from '@polkadot/types/interfaces';
 
 import { calcPassing } from '@polkadot/api-derive/democracy/util';
@@ -142,17 +144,18 @@ export function approxChanges (threshold: VoteThreshold, sqrtElectorate: BN, sta
   };
 }
 
-
 // Sum large numbers
-export function largeNumSum (first:string, second:string): string {
-  var sum = '';
-  var carry = 0;
-  var diff = second.length - first.length;
-  for (let i:number = (first.length - 1); i >= 0; i--) {
-    var temp =
+export function largeNumSum (first: string, second: string): string {
+  let sum = '';
+  let carry = 0;
+  const diff = second.length - first.length;
+
+  for (let i: number = (first.length - 1); i >= 0; i--) {
+    const temp =
       (Number(first.charAt(i)) % 10) +
       (Number(second.charAt(i + diff)) % 10) +
       carry;
+
     if (temp >= 10) {
       sum = (temp % 10) + sum;
       carry = Math.floor(temp / 10);
@@ -161,8 +164,10 @@ export function largeNumSum (first:string, second:string): string {
       carry = 0;
     }
   }
+
   if (carry) {
     sum = carry + sum;
   }
+
   return sum;
 }

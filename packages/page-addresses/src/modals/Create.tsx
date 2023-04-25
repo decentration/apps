@@ -105,19 +105,18 @@ function Create ({ onClose, onStatusChange }: Props): React.ReactElement<Props> 
           : t<string>('address created');
 
         InputAddress.setLastValue('address', address);
-        
       } catch (error) {
         status.status = 'error';
         status.message = (error as Error).message;
       }
+
       toggleFavorite(address);
       console.log(favorites);
       onStatusChange(status);
       onClose();
     },
-    [info, isAddressExisting, isValid, name, onClose, onStatusChange, t]
+    [address, favorites, info?.accountId, isAddressExisting, isValid, name, onClose, onStatusChange, t, toggleFavorite]
   );
-
 
   return (
     <Modal

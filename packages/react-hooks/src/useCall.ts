@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ApiPromise } from '@polkadot/api';
-import type { PromiseRpcResult, PromiseResult, QueryableStorageEntry } from '@polkadot/api/types';
+import type { PromiseResult, PromiseRpcResult, QueryableStorageEntry } from '@polkadot/api/types';
 import type { StorageEntryTypeLatest } from '@polkadot/types/interfaces';
 import type { AnyFunction, Codec } from '@polkadot/types/types';
 import type { CallOptions, CallParam, CallParams } from './types';

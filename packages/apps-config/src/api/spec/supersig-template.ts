@@ -1,9 +1,8 @@
 // Copyright 2017-2022 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+// eslint-disable-next-line header/header
 import type { OverrideBundleDefinition } from '@polkadot/types/types';
-//import typesBundleForPolkadotApp from 'supersig-types/dist';
-
 
 const definitions: OverrideBundleDefinition = {
   rpc: {
@@ -61,30 +60,30 @@ const definitions: OverrideBundleDefinition = {
         null
       ],
       types: {
-        Role: {
-          _enum: {
-            Master: 'Vec<u8>',
-            NotMember: 'Vec<u8>',
-            Standard: 'Vec<u8>',
-          }
-        },
         CallId: 'u32',
         FetchListProposals: {
-          proposals_info: 'ProposalStates',
-          no_of_members: 'u32'
+          no_of_members: 'u32',
+          proposals_info: 'ProposalStates'
         },
         FetchProposalState: {
           no_of_members: 'u32',
           proposal_info: 'ProposalState<AccountId>'
         },
-        SupersigId: 'u132',
         ProposalState: {
-          id: 'CallId',
           encoded_call: 'Vec<u8>',
+          id: 'CallId',
           provider: 'AccountId',
           voters: 'Vec<AccountId>'
         },
         ProposalStates: 'Vec<ProposalState<AccountId>>',
+        Role: {
+          _enum: {
+            Master: 'Vec<u8>',
+            NotMember: 'Vec<u8>',
+            Standard: 'Vec<u8>'
+          }
+        },
+        SupersigId: 'u132'
       }
     }
   ]

@@ -1,19 +1,27 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable camelcase */
 // Copyright 2017-2022 @polkadot/app-addresses authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+// eslint-disable-next-line header/header, @typescript-eslint/no-unused-vars
+import type { __AugmentedRpc } from 'supersig-types/dist/interfaces/augment-supersig-rpc';
 import type { ComponentProps as Props } from '../types';
+
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Table, Button, SummaryBox } from '@polkadot/react-components';
+
+import { Button, SummaryBox, Table } from '@polkadot/react-components';
 import { useApi, useCall, useFavorites, useToggle } from '@polkadot/react-hooks';
-import { useLoadingDelay } from './useLoadingDelay'
-import CreateModal from '../../../../page-accounts/src/modals/Create';
-import { useTranslation } from '../translate';
-import Address from './Table';
-import Summary from './Summary';
-import { largeNumSum } from '../../util';
 import { encodeAddress } from '@polkadot/util-crypto';
-import type { __AugmentedRpc } from 'supersig-types/dist/interfaces/augment-supersig-rpc';
+
+import CreateModal from '../../../../page-accounts/src/modals/Create';
+import { largeNumSum } from '../../util';
+import { useTranslation } from '../translate';
+import Summary from './Summary';
+import Address from './Table';
+import { useLoadingDelay } from './useLoadingDelay';
 
 type SortedAddress = { address: string; isFavorite: boolean };
 
@@ -24,11 +32,11 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   const [isCreateOpen, toggleCreate] = useToggle(false);
   const [favorites, toggleFavorite] = useFavorites(STORE_FAVS);
   const [sortedAddresses, setSortedAddresses] = useState<SortedAddress[] | undefined>();
-  const filterOn: string= '';
+  const filterOn = '';
   const [totalProposalCnt, setTotalProposalCnt] = useState<number>(0);
   const [totalBalance, setTotalBalance] = useState('');
   const isLoading = useLoadingDelay();
-  const { api } = useApi() 
+  const { api } = useApi();
   // as unknown as { api: CustomApi };
   const [allAddresses, setAllAddresses] = useState<string[]>([]);
   const supersig_nonce = useCall(api.query.supersig?.nonceSupersig);
@@ -42,17 +50,53 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
     [undefined, 'media--1400', 2],
     []
   ]);
-  
-  useEffect((): void => {
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    async function getSuperSigAddress () {
+      const modl = '0x6d6f646c';
+      const pallet_id = api.consts.supersig.palletId.toString();
+      const addressArray: string[] = [];
+
+      const twoDigit = (number: number): string => {
+        const twodigit = number >= 10 ? number : '0' + number.toString();
+
+        return twodigit.toString();
+      };
+
+      function * asyncGenerator () {
+        let i = 0;
+
+        while (i < Number(supersig_nonce)) {
+          yield i++;
+        }
+      }
+
+      for await (const num of asyncGenerator()) {
+        const supersig_concat = (modl + pallet_id.slice(2, pallet_id.length) + twoDigit(num) + '00000000000000000000000000000000000000');
+        const account = encodeAddress(supersig_concat);
+
+        try {
+          const members: any[] = (await api.rpc.superSig.listMembers(account)).toArray();
+
+          if (members.length > 0) {
+            addressArray.push(account.toString());
+          }
+        } catch (err) {}
+      }
+
+      setAllAddresses(addressArray);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     getSuperSigAddress();
   }, [api, supersig_nonce]);
 
-  
   useEffect((): void => {
     setSortedAddresses(
       allAddresses
-        .map((address:any): SortedAddress => ({ address, isFavorite: favorites.includes(address) }))
-        .sort((a:any, b:any): number =>
+        .map((address: any): SortedAddress => ({ address, isFavorite: favorites.includes(address) }))
+        .sort((a: any, b: any): number =>
           a.isFavorite === b.isFavorite
             ? 0
             : b.isFavorite
@@ -60,63 +104,40 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
               : -1
         )
     );
-   setbalance(); 
+
+    const setbalance = async () => {
+      let totalbalances = '';
+      let totalproposal = 0;
+
+      await Promise.all(allAddresses.map(async (address) => {
+        const balancesAll = await api.derive.balances?.all(address);
+        const sigBalance = (balancesAll.freeBalance.add(balancesAll.reservedBalance)).toString();
+
+        if (totalbalances.length > sigBalance.length) {
+          totalbalances = largeNumSum(totalbalances, sigBalance);
+        } else {
+          totalbalances = largeNumSum(sigBalance, totalbalances);
+        }
+
+        const proposals = await api.rpc.superSig.listProposals(address);
+
+        totalproposal = totalproposal + proposals.proposals_info.length;
+      }));
+      setTotalProposalCnt(totalproposal);
+      setTotalBalance(totalbalances);
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    setbalance();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allAddresses, favorites]);
 
-
-  const getSuperSigAddress = async() => {
-    let modl = '0x6d6f646c'
-    let pallet_id = await api.consts.supersig.palletId.toString();
-    let addressArray: string[] = [];
-
-    const twoDigit = (number: number): string => {
-      var twodigit = number >= 10 ? number : "0"+number.toString();
-      return twodigit.toString();
-    }
-
-    async function* asyncGenerator() {
-      let i = 0;
-      while (i < Number(supersig_nonce)) {
-        yield i++;
-      }
-    }
-
-    for await (const num of asyncGenerator()) {
-      let supersig_concat = ( modl + pallet_id.slice(2, pallet_id.length) + twoDigit(num) + '00000000000000000000000000000000000000' );
-      var account = encodeAddress(supersig_concat);
-      try{
-        let members: any[] = await (await api.rpc.superSig.listMembers(account)).toArray();
-
-        if(members.length > 0){
-          addressArray.push(account.toString());
-        }
-      }catch(err){}
-    }
-    setAllAddresses(addressArray);
-  }
-
-  const setbalance = async() => {
-    var totalbalances:string = '';
-    var totalproposal:number = 0;
-
-    await Promise.all(allAddresses.map(async (address)=>{
-      let balancesAll = await api.derive.balances?.all(address);
-      let sigBalance = (balancesAll.freeBalance.add(balancesAll.reservedBalance)).toString();
-      if(totalbalances.length > sigBalance.length){
-        totalbalances = largeNumSum(totalbalances, sigBalance);
-      }else{
-        totalbalances = largeNumSum(sigBalance, totalbalances);
-      }
-      let proposals = await api.rpc.superSig.listProposals(address);
-      totalproposal = totalproposal + proposals.proposals_info.length;
-    }))
-    setTotalProposalCnt(totalproposal);
-    setTotalBalance(totalbalances);
-  }
-
   return (
-    <div className={className} style={{overflow: "auto"}}>
-     
+    <div
+      className={className}
+      style={{ overflow: 'auto' }}
+    >
+
       {isCreateOpen && (
         <CreateModal
           onClose={toggleCreate}
@@ -124,22 +145,26 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
         />
       )}
       <StyledDiv>
-      <SummaryBox className='header-box'>
-      <Summary sigCnt={sortedAddresses} totalProposals={totalProposalCnt} totalBalance={totalBalance} />
-        <Button.Group>
-           <a href={`#/supersig/create/0x080000`}>
-                <Button
-                  className='send-button'
-                  icon='plus'
-                  key='create'
-                  label={t<string>('create supersig')}
-                  onClick={()=>{}}
-                />
-              </a>
+        <SummaryBox className='header-box'>
+          <Summary
+            sigCnt={sortedAddresses}
+            totalBalance={totalBalance}
+            totalProposals={totalProposalCnt}
+          />
+          <Button.Group>
+            <a href={'#/supersig/create/0x080000'}>
+              <Button
+                className='send-button'
+                icon='plus'
+                key='create'
+                label={t<string>('create supersig')}
+                // eslint-disable-next-line react/jsx-no-bind, @typescript-eslint/no-empty-function
+                onClick={() => {}}
+              />
+            </a>
           </Button.Group>
         </SummaryBox>
-        </StyledDiv>
-
+      </StyledDiv>
       <Table
         empty={!isLoading && sortedAddresses && t<string>('no addresses saved yet, add any existing address')}
         header={headerRef.current}
@@ -158,6 +183,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
     </div>
   );
 }
+
 const StyledDiv = styled.div`
   .ui--Dropdown {
     width: 15rem;

@@ -1,22 +1,35 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unsafe-optional-chaining */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+// [object Object]
+// SPDX-License-Identifier: Apache-2.0
+
+// eslint-disable-next-line header/header
+import type { FetchListProposals, MembersList, ProposalState } from 'supersig-types/dist/interfaces/default';
+import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
 import type { ThemeProps } from '@polkadot/react-components/types';
+import type { AccountId, Call } from '@polkadot/types/interfaces';
 import type { KeyringAddress } from '@polkadot/ui-keyring/types';
+
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import type { Call } from '@polkadot/types/interfaces';
+
 import Transfer from '@polkadot/app-accounts/modals/Transfer';
-import { IconLink, Input, Call as CallDisplay, Expander, ExpanderScroll, AddressInfo, AddressSmall, Button, ChainLock, ExpandButton, Forget, Icon, LinkExternal, Menu, Popup, Tags, InputAddress, InputBalance } from '@polkadot/react-components';
-import { useApi, useCall, useBalancesAll, useDeriveAccountInfo, useToggle } from '@polkadot/react-hooks';
+import { AddressInfo, AddressSmall, Button, Call as CallDisplay, ChainLock, ExpandButton, Expander, ExpanderScroll, Forget, Icon, IconLink, Input, InputAddress, InputBalance, LinkExternal, Menu, Popup, Tags } from '@polkadot/react-components';
+import IdentityIcon from '@polkadot/react-components/IdentityIcon';
+import { useApi, useBalancesAll, useCall, useDeriveAccountInfo, useToggle } from '@polkadot/react-hooks';
+import { FormatBalance } from '@polkadot/react-query';
 import { keyring } from '@polkadot/ui-keyring';
 import { BN_ZERO, formatNumber, isFunction, u8aToHex } from '@polkadot/util';
-import type  { MembersList, FetchListProposals, ProposalState } from 'supersig-types/dist/interfaces/default'
-import { useTranslation } from '../translate';
-import type { AccountId } from '@polkadot/types/interfaces';
-import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
-import IdentityIcon from '@polkadot/react-components/IdentityIcon';
-import { FormatBalance } from '@polkadot/react-query';
 import { decodeAddress } from '@polkadot/util-crypto';
+
 import { largeNumSum } from '../../util';
+import { useTranslation } from '../translate';
+
 // import '../../augment-api-rpc';
 interface Props {
   address: string;
@@ -45,7 +58,7 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
   const [isTransferOpen, setIsTransferOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isExpanded, toggleIsExpanded] = useToggle(false);
-  
+
   const [memberAccounts, setMemberAccounts] = useState<Array<object>>([]);
   const members = useCall<MembersList>(api.api.rpc.superSig.listMembers, [address]);
   const proposals = useCall<FetchListProposals>(api.api.rpc.superSig.listProposals, [address]);
@@ -58,36 +71,39 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
 
   const getInfo = async () => {
     setMemberCnt(((members?.toArray()) || []).length);
-    var tempBalance:string = '';
-    var tempMemberAccounts : Array<object> = [];
-    await Promise.all((members?.toArray() || []).map(async(item: any) => {
-      let balance = await api.api.derive.balances?.all(item[0]);
-      var membalance = (balance.freeBalance.add(balance.reservedBalance)).toString();
-      if(tempBalance.length > membalance.length){
+    let tempBalance = '';
+    const tempMemberAccounts: Array<object> = [];
+
+    await Promise.all((members?.toArray() || []).map(async (item: any) => {
+      const balance = await api.api.derive.balances?.all(item[0]);
+      const membalance = (balance.freeBalance.add(balance.reservedBalance)).toString();
+
+      if (tempBalance.length > membalance.length) {
         tempBalance = largeNumSum(tempBalance, membalance);
-      }else{
+      } else {
         tempBalance = largeNumSum(membalance, tempBalance);
       }
 
-      let info = {id: item[0].toString(), balance: membalance};
+      const info = { balance: membalance, id: item[0].toString() };
 
       tempMemberAccounts.push(info);
-    }))
+    }));
 
     setBalancesSum(tempBalance);
     setMemberAccounts(tempMemberAccounts);
-
-  }
+  };
 
   useEffect((): void => {
     const current = keyring.getAddress(address);
-    getInfo();
+
+    // eslint-disable-next-line no-void
+    void getInfo();
     setProposalCnt((proposals?.proposals_info || []).length);
 
     setCurrent(current || null);
     setGenesisHash((current && current.meta.genesisHash) || null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [api, members,proposals]);
+  }, [api, members, proposals]);
 
   useEffect((): void => {
     const { identity, nickname } = info || {};
@@ -175,154 +191,168 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
     return null;
   }
 
-
-  const ProposalDetail = () : React.ReactElement => {
-
-    const VoterComponent = ({voter}:{voter:AccountId}) : React.ReactElement<{voter:AccountId}> => {
-      let balances = useCall<DeriveBalancesAll>(api.api.derive.balances?.all, [voter]);
-      let voterbalance = balances ? (balances?.freeBalance.add(balances?.reservedBalance)).toString() : '0';
+  const ProposalDetail = (): React.ReactElement => {
+    const VoterComponent = ({ voter }: {voter: AccountId}): React.ReactElement<{voter: AccountId}> => {
+      const balances = useCall<DeriveBalancesAll>(api.api.derive.balances?.all, [voter]);
+      const voterbalance = balances ? (balances?.freeBalance.add(balances?.reservedBalance)).toString() : '0';
       const [voterRole, setVoterRole] = useState<string>('');
+
       const getRole = async (address: AccountId) => {
-        let role:string = '';
+        let role = '';
+
+        // eslint-disable-next-line array-callback-return
         await Promise.all((members?.toArray() || []).map((mem: any) => {
-          if(mem[0] = address){
+          // eslint-disable-next-line no-cond-assign
+          if (mem[0] = address) {
             role = mem[1].type;
           }
-        }))
+        }));
         setVoterRole(role);
-      }
-      useEffect(()=>{
+      };
+
+      useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         getRole(voter);
-      },[]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);
 
       return (
         <>
-        <InputAddress 
-          defaultValue={voter}
-          isDisabled
-          label={t<string>('Voter')}
-        />
-        <InputBalance
-             defaultValue={voterbalance}
-             isDisabled
-             label={t<string>('Balance')}
-         />
-        <Input 
-             defaultValue={voterRole.toString()}
-             isDisabled
-             label={t<string>('Role')}
-             value={voterRole}
+          <InputAddress
+            defaultValue={voter}
+            isDisabled
+            label={t<string>('Voter')}
+          />
+          <InputBalance
+            defaultValue={voterbalance}
+            isDisabled
+            label={t<string>('Balance')}
+          />
+          <Input
+            defaultValue={voterRole.toString()}
+            isDisabled
+            label={t<string>('Role')}
+            value={voterRole}
           />
         </>
-      )
-    }
+      );
+    };
 
     const renderProposalInfo = useCallback(
-      () => proposals && proposals.proposals_info.map((item: ProposalState, index: number): React.ReactNode =>{
+      () => proposals && proposals.proposals_info.map((item: ProposalState, index: number): React.ReactNode => {
         let extrinsicCall: Call;
+
+        // eslint-disable-next-line prefer-const
         extrinsicCall = api.api.createType('Call', item.encoded_call.toString());
         const { method, section } = api.api.registry.findMetaCall(extrinsicCall.callIndex);
         let call_id = u8aToHex(item.id.toU8a(), -1, false).toString();
-        let call_data = u8aToHex(item.encoded_call.toU8a(), -1, false).toString();
-        for(let k = 0; k < ( 32 - call_id.length ); k++){
+        const call_data = u8aToHex(item.encoded_call.toU8a(), -1, false).toString();
+
+        for (let k = 0; k < (32 - call_id.length); k++) {
           call_id += '0';
         }
-       // let chainId = await api.api.query.supersig.calls
-       // let approveCall: any = useCall(api.tx.supersig.approveCall);
-       // let decodeApprove = u8aToHex(approveCall.toU8a(), -1, false).toString();
-       // let approvelink = '#/supersig/create/`' + `${approveCall}` + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
-       // let approvelink = '#/supersig/create/0x08026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
-        let detailslink = '#/supersig/decode/0x08016d6f646c69642f7375736967' + '00000000000000000000000000000000000000' + call_data;
-        let approvelink = '#/supersig/create/0x2a026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
-        
-        return(
-          <div style={{minHeight: '35px', alignItems: 'center', display: 'flex'}}>
-            <Expander 
+
+        // let chainId = await api.api.query.supersig.calls
+        // let approveCall: any = useCall(api.tx.supersig.approveCall);
+        // let decodeApprove = u8aToHex(approveCall.toU8a(), -1, false).toString();
+        // let approvelink = '#/supersig/create/`' + `${approveCall}` + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
+        // let approvelink = '#/supersig/create/0x08026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
+        const detailslink = '#/supersig/decode/0x08016d6f646c69642f7375736967' + '00000000000000000000000000000000000000' + call_data;
+        const approvelink = '#/supersig/create/0x2a026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
+
+        return (
+          // eslint-disable-next-line react/jsx-key
+          <div style={{ alignItems: 'center', display: 'flex', minHeight: '35px' }}>
+            <Expander
+              className='w-full'
               key={index}
-              className="w-full"
               summary={`${section}.${method}`}
             >
-              
-          
-              
-              <div style={{border: "1px dashed lightgrey", borderRadius: '3px', alignItems: 'center', display: 'flex', minHeight: '50px', marginTop: '5px', marginLeft: '28px', padding: '1px 20px'}}>
+
+              <div style={{ alignItems: 'center', border: '1px dashed lightgrey', borderRadius: '3px', display: 'flex', marginLeft: '28px', marginTop: '5px', minHeight: '50px', padding: '1px 20px' }}>
                 <Expander
                   summary={t<string>('Voters(' + item.voters.length.toString() + '/' + proposals.no_of_members.toString() + ')')}
                 >
                   {
                     item.voters.map((voterId: AccountId, i: number) => {
-                      return(
-                        <VoterComponent voter={voterId} key={i} />
-                      )}
+                      return (
+                        <VoterComponent
+                          key={i}
+                          voter={voterId}
+                        />
+                      );
+                    }
                     )
                   }
                 </Expander>
               </div>
-              <div style={{border: "1px dashed lightgrey", borderRadius: '3px', alignItems: 'center', display: 'flex', minHeight: '50px', marginTop: '5px', marginLeft: '28px', padding: '1px 20px'}}>
+              <div style={{ alignItems: 'center', border: '1px dashed lightgrey', borderRadius: '3px', display: 'flex', marginLeft: '28px', marginTop: '5px', minHeight: '50px', padding: '1px 20px' }}>
                 <IconLink
+                  href={approvelink}
                   icon='file-signature'
                   label={t<string>('Vote')}
-                  href={approvelink}
                 />
               </div>
-              <div style={{border: "1px dashed lightgrey", borderRadius: '3px', alignItems: 'center', display: 'flex', minHeight: '50px', marginTop: '5px', marginLeft: '28px', padding: '1px 20px'}}>
+              <div style={{ alignItems: 'center', border: '1px dashed lightgrey', borderRadius: '3px', display: 'flex', marginLeft: '28px', marginTop: '5px', minHeight: '50px', padding: '1px 20px' }}>
 
-            <Expander summary={t<string>('Proposal Info ')}>
-             
-                <InputAddress
-                  defaultValue={item.provider}
-                  isDisabled
-                  label={t<string>('Proposer')}
-                />
-                <CallDisplay
-                  className='Proposal Info'
-                  value={extrinsicCall}
-                />
-                <div style={{margin: '5px'}}>
-                <IconLink
-                    icon='nfc-magnifying-glass'
-                    label={t<string>('extrinsic')}
-                    href={detailslink}
+                <Expander summary={t<string>('Proposal Info ')}>
+
+                  <InputAddress
+                    defaultValue={item.provider}
+                    isDisabled
+                    label={t<string>('Proposer')}
                   />
-                </div>
-                <Input
-                  defaultValue={item.id.toString()}
-                  isDisabled
-                  label={t<string>('CallId')}
-                />
-              </Expander>
+                  <CallDisplay
+                    className='Proposal Info'
+                    value={extrinsicCall}
+                  />
+                  <div style={{ margin: '5px' }}>
+                    <IconLink
+                      href={detailslink}
+                      icon='nfc-magnifying-glass'
+                      label={t<string>('extrinsic')}
+                    />
+                  </div>
+                  <Input
+                    defaultValue={item.id.toString()}
+                    isDisabled
+                    label={t<string>('CallId')}
+                  />
+                </Expander>
               </div>
             </Expander>
           </div>
-        )
+        );
       }),
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       [proposals]
     );
 
     return (
-      proposalCnt == 0 ? <>{proposalCnt}</> :
-      <ExpanderScroll
-        renderChildren={renderProposalInfo}
-        summary={t<string>(proposalCnt.toString())}
-      />
-    )
-  }
+      proposalCnt === 0
+        ? <>{proposalCnt}</>
+        // eslint-disable-next-line react/jsx-max-props-per-line
+        : <ExpanderScroll renderChildren={renderProposalInfo} summary={t<string>(proposalCnt.toString())} />
+    );
+  };
 
   interface IMemberItem {
     id?: Uint8Array | string;
     balance?: string;
   }
 
-  const BalanceDetail = () : React.ReactElement => {
-
+  const BalanceDetail = (): React.ReactElement => {
     const renderMembers = useCallback(
       () => memberAccounts && memberAccounts.map((item: IMemberItem, index: number): React.ReactNode =>
-        <div key={index} style={{display: "-webkit-box"}}>
-          <div style={{margin: '5px'}}>
-          <IdentityIcon value={item.id as Uint8Array} />
+        <div
+          key={index}
+          style={{ display: '-webkit-box' }}
+        >
+          <div style={{ margin: '5px' }}>
+            <IdentityIcon value={item.id as Uint8Array} />
           </div>
           <div>
-            <p style={{textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: 'hidden', width: "190px"}}>{item.id}</p>
+            <p style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', width: '190px' }}>{item.id}</p>
             <FormatBalance
               className='result'
               value={item.balance}
@@ -330,6 +360,7 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
           </div>
         </div>
       ),
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       [memberAccounts]
     );
 
@@ -338,13 +369,13 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
         renderChildren={renderMembers}
         summary={<>
           <FormatBalance
-              className='result'
-              value={balancesSum}
-            /> ({formatNumber(memberCnt)})
-          </>}
+            className='result'
+            value={balancesSum}
+          /> ({formatNumber(memberCnt)})
+        </>}
       />
-    )
-  }
+    );
+  };
 
   const PopupDropdown = (
     <Menu>
@@ -408,7 +439,6 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
         <td className='number media--1500'>
           {balancesAll?.accountNonce.gt(BN_ZERO) && formatNumber(balancesAll.accountNonce)}
         </td>
-
         <td className='number'>
           <AddressInfo
             address={address}
@@ -442,11 +472,13 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
                   icon='paper-plane'
                   key='propose'
                   label={t<string>('propose')}
-                  onClick={()=>{}}
+                  // eslint-disable-next-line react/jsx-no-bind, @typescript-eslint/no-empty-function
+                  onClick={() => {}}
                 />
               </a>
             )}
             <Popup
+              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
               className={`theme--${theme}`}
               value={PopupDropdown}
             />

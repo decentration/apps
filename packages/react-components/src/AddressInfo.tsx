@@ -544,6 +544,7 @@ function renderBalances (props: Props, lookup: Record<string, string>, bestNumbe
   withBalanceToggle && balancesAll?.additional.length && balancesAll.additional.forEach((balancesAll, index): void => {
     items.push(createBalanceItems(index + 1, lookup, t, { ...baseOpts, balancesAll }));
   });
+
   return items;
 }
 

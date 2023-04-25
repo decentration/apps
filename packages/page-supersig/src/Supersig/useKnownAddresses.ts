@@ -1,6 +1,7 @@
 // Copyright 2017-2022 @polkadot/app-accounts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+// eslint-disable-next-line header/header
 import { useMemo } from 'react';
 
 import { createNamedHook, useAccounts, useAddresses } from '@polkadot/react-hooks';

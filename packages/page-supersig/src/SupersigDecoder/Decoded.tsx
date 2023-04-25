@@ -1,6 +1,7 @@
 // Copyright 2017-2022 @polkadot/app-extrinsics authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+// eslint-disable-next-line header/header
 import type { SubmittableExtrinsic } from '@polkadot/api/types';
 import type { Inspect } from '@polkadot/types/types';
 import type { HexString } from '@polkadot/util/types';

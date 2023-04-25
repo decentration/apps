@@ -1,6 +1,7 @@
 // Copyright 2017-2022 @polkadot/app-accounts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+// eslint-disable-next-line header/header
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
 import type { DisplayedJudgement } from '@polkadot/react-components/types';
 import type { AccountId, AccountIndex, Address } from '@polkadot/types/interfaces';
@@ -30,6 +31,7 @@ export function createMenuGroup (key: string, items: (React.ReactNode | false | 
 export type AccountIdIsh = AccountId | AccountIndex | Address | string | Uint8Array | null;
 
 export function downloadAccount ({ json, pair }: CreateResult): void {
+  // eslint-disable-next-line deprecation/deprecation
   FileSaver.saveAs(
     new Blob([JSON.stringify(json)], { type: 'application/json; charset=utf-8' }),
     `${pair.address}.json`

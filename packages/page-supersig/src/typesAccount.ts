@@ -1,19 +1,19 @@
 // Copyright 2017-2022 @polkadot/app-accounts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
+// eslint-disable-next-line header/header
+import type { Role, SupersigId } from 'supersig-types/dist/interfaces/';
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
-import type { Balance, Conviction, Address } from '@polkadot/types/interfaces';
+import type { Address, Balance, Conviction } from '@polkadot/types/interfaces';
 import type { KeyringAddress } from '@polkadot/ui-keyring/types';
 import type { BN } from '@polkadot/util';
-import type { Role, SupersigId } from 'supersig-types/dist/interfaces/';
-
 
 import { WithTranslation } from 'react-i18next';
 
 export type { AppProps as ComponentProps } from '@polkadot/react-components/types';
 
 export interface SupersigRole {
-  role: Role; 
+  role: Role;
   id: SupersigId
 }
 
