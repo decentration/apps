@@ -105,7 +105,6 @@ function Menu ({ className = '' }: Props): React.ReactElement<Props> {
     governance: t<string>('Governance'),
     network: t<string>('Network'),
     settings: t<string>('Settings'),
-    supersig: t<string>('Supersig')
   });
 
   const hasSudo = useMemo(

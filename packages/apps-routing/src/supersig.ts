@@ -41,10 +41,10 @@ export default function create (t: TFunction): Route {
       // needsApiCheck
 
     },
-    group: 'supersig',
+    group: 'network',
     icon: 'people-line',
-    name: 'supersig',
-    text: t('nav.supersig', 'Supersig', { ns: 'apps-routing' }),
+    name: 'organisations',
+    text: t('nav.supersig', 'Organisations', { ns: 'apps-routing' }),
     useCounter
   };
 }
