@@ -7,7 +7,7 @@ import { createNamedHook, useApi, useCall } from '@polkadot/react-hooks';
 
 function useCounterImpl (): number {
   const { api } = useApi();
-  const bids = useCall<Bid[]>(api.query.supersig?.candidates); // change this query to the relevant supersig query
+  const bids = useCall<Bid[]>(api.query.supersig?.nonceCall); // change this query to the relevant supersig query
 
   return bids?.length || 0;
 }
