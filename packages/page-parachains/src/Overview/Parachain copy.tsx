@@ -1,7 +1,6 @@
-// Copyright 2017-2022 @polkadot/app-parachains authors & contributors
+// Copyright 2017-2023 @polkadot/app-parachains authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import type { AccountId, GroupIndex, ParaId } from '@polkadot/types/interfaces';
 import type { LeasePeriod, QueuedAction } from '../types';
 import type { EventMapInfo, ValidatorInfo } from './types';

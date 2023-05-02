@@ -1,13 +1,6 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-// [object Object]
+// Copyright 2017-2023 @polkadot/app-supersig authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import type { FetchListProposals, MembersList, ProposalState } from 'supersig-types/dist/interfaces/default';
 import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
 import type { ActionStatus } from '@polkadot/react-components/Status/types';

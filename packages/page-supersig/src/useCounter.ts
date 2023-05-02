@@ -1,7 +1,6 @@
-// Copyright 2017-2022 @polkadot/app-democracy authors & contributors
+// Copyright 2017-2023 @polkadot/app-democracy authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import type { Bid } from '@polkadot/types/interfaces';
 
 import { createNamedHook, useApi, useCall } from '@polkadot/react-hooks';

@@ -1,7 +1,6 @@
-// Copyright 2017-2022 @polkadot/app-accounts authors & contributors
+// Copyright 2017-2023 @polkadot/app-supersig authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
 import type { KeyringAddress } from '@polkadot/ui-keyring/types';
 

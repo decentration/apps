@@ -1,7 +1,6 @@
-// Copyright 2017-2022 @polkadot/apps-routing authors & contributors
+// Copyright 2017-2023 @polkadot/apps-routing authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import type { TFunction } from 'i18next';
 // import type { ApiPromise } from '@polkadot/api';
 import type { Route } from './types';

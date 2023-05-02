@@ -1,11 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable camelcase */
-// Copyright 2017-2022 @polkadot/app-addresses authors & contributors
+// Copyright 2017-2023 @polkadot/app-supersig authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header, @typescript-eslint/no-unused-vars
 import type { __AugmentedRpc } from 'supersig-types/dist/interfaces/augment-supersig-rpc';
 import type { ComponentProps as Props } from '../types';
 

@@ -23,6 +23,14 @@ module.exports = {
     // needs to be switched on at some point
     '@typescript-eslint/no-explicit-any': 'off',
     // this seems very broken atm, false positives
-    '@typescript-eslint/unbound-method': 'off'
+    '@typescript-eslint/unbound-method': 'off',
+    "camelcase": "off",
+    "deprecation/deprecation": "off",
+    "@typescript-eslint/no-unsafe-assignment": 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    "no-unsafe-optional-chaining": "off", 
+    "@typescript-eslint/restrict-plus-operands": "off",
   }
 };

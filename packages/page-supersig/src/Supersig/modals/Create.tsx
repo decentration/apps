@@ -1,7 +1,6 @@
-// Copyright 2017-2022 @polkadot/app-addresses authors & contributors
+// Copyright 2017-2023 @polkadot/app-supersig authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import type { DeriveAccountInfo } from '@polkadot/api-derive/types';
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
 import type { ModalProps as Props } from '../types';

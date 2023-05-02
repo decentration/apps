@@ -1,7 +1,6 @@
-// Copyright 2017-2022 @decentration/page-supersig authors & contributors
+// Copyright 2017-2023 @polkadot/app-supersig authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import 'supersig-types';
 
 import React from 'react';

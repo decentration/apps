@@ -1,6 +1,6 @@
-// import OverrideRpcDefinition from '@polkadot/types/interfaces/jsonrpc';
+// Copyright 2017-2023 @polkadot/app-extrinsics authors & contributors
+// SPDX-License-Identifier: Apache-2.0
 
-// eslint-disable-next-line header/header
 import type { DefinitionRpc, DefinitionRpcSub } from '@polkadot/types/types';
 // import type { DefinitionRpc}
 

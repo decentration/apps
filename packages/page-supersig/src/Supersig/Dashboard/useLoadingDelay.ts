@@ -1,6 +1,6 @@
-// Copyright 2017-2021 @polkadot/react-hooks authors & contributors
+// Copyright 2017-2023 @polkadot/react-hooks authors & contributors
 // SPDX-License-Identifier: Apache-2.0
-// eslint-disable-next-line header/header
+
 import { useEffect, useState } from 'react';
 
 import { useIsMountedRef } from '../../../../react-hooks/src/useIsMountedRef';
