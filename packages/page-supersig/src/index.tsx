@@ -22,13 +22,22 @@ interface Props {
   basePath: string;
 }
 
+function createPathRef (basePath: string): Record<string, string | string[]> {
+  return {
+    create: [
+      `${basePath}/create/:encoded`,
+      `${basePath}/create`,
+      `${basePath}`
+    ],
+    decode: [
+      `${basePath}/decode/:encoded`,
+      `${basePath}/decode`
+    ]
+  };
+}
+
 function createItemsRef (t: TFunction): TabItem[] {
   return [
-    {
-      isRoot: true,
-      name: 'dashboard',
-      text: t<string>('Dashboard')
-    },
     {
       hasParams: true,
       name: 'create',
@@ -38,16 +47,13 @@ function createItemsRef (t: TFunction): TabItem[] {
       hasParams: true,
       name: 'decode',
       text: t<string>('Decode')
+    },
+    {
+      isRoot: true,
+      name: 'dashboard',
+      text: t<string>('Dashboard')
     }
   ];
-}
-
-function createPathRef (basePath: string): Record<string, string | string[]> {
-  return {
-    create: [`${basePath}/create/:encoded`, `${basePath}/create`],
-    dashboard: [`${basePath}/dashboard`],
-    decode: [`${basePath}/decode/:encoded`, `${basePath}/decode`]
-  };
 }
 
 function SupersigApp ({ basePath }: Props): React.ReactElement<Props> {
@@ -70,7 +76,7 @@ function SupersigApp ({ basePath }: Props): React.ReactElement<Props> {
         >
           <Redirect to={`${basePath}/dashboard`} />
         </Route>
-        <Route path={pathRef.current.dashboard}>
+        <Route path={`${basePath}/dashboard`}>
           <Contacts basePath={basePath} />
         </Route>
         <Route path={pathRef.current.decode}>

@@ -57055,12 +57055,12 @@ export const typesBundle = {
           "types": {
             "CallId": "u32",
             "FetchListProposals": {
+              "proposals_info": "ProposalStates",
               "no_of_members": "u32",
-              "proposals_info": "ProposalStates"
             },
             "FetchProposalState": {
-              "no_of_members": "u32",
-              "proposal_info": "ProposalState<AccountId>"
+              "proposal_info": "ProposalState<AccountId>",
+              "no_of_members": "u32"
             },
             "ProposalState": {
               "encoded_call": "Vec<u8>",
@@ -57076,7 +57076,7 @@ export const typesBundle = {
                 "Standard": "Vec<u8>"
               }
             },
-            "SupersigId": "u132"
+            "SupersigId": "u32"
           }
         }
       ]
@@ -78323,7 +78323,7 @@ export const typesBundle = {
                 "Standard": "Vec<u8>"
               }
             },
-            "SupersigId": "u132"
+            "SupersigId": "u32"
           }
         }
       ]
@@ -78407,7 +78407,7 @@ export const typesBundle = {
                 "Standard": "Vec<u8>"
               }
             },
-            "SupersigId": "u132"
+            "SupersigId": "u32"
           }
         }
       ]
