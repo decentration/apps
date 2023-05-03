@@ -248,10 +248,10 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
         // let chainId = await api.api.query.supersig.calls
         // let approveCall: any = useCall(api.tx.supersig.approveCall);
         // let decodeApprove = u8aToHex(approveCall.toU8a(), -1, false).toString();
-        // let approvelink = '#/supersig/create/`' + `${approveCall}` + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
-        // let approvelink = '#/supersig/create/0x08026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
-        const detailslink = '#/supersig/decode/0x08016d6f646c69642f7375736967' + '00000000000000000000000000000000000000' + call_data;
-        const approvelink = '#/supersig/create/0x2a026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
+        // let approvelink = '#/orgnaisations/create/`' + `${approveCall}` + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
+        // let approvelink = '#/orgnaisations/create/0x08026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
+        const detailslink = '#/organisations/decode/0x08016d6f646c69642f7375736967' + '00000000000000000000000000000000000000' + call_data;
+        const approvelink = '#/organisations/create/0x2a026d6f646c69642f7375736967' + nonce.slice(26, 28) + '00000000000000000000000000000000000000' + call_id;
 
         return (
           // eslint-disable-next-line react/jsx-key
@@ -459,7 +459,7 @@ function Address ({ address, className = '', filter, isFavorite, toggleFavorite 
         <td className='fast-actions-addresses'>
           <div className='fast-actions-row'>
             {isFunction(api.api.tx.balances?.transfer) && (
-              <a href={`#/supersig/create/0x08016d6f646c69642f7375736967${nonce.slice(26, 28)}00000000000000000000000000000000000000`}>
+              <a href={`#/orgnaisations/create/0x08016d6f646c69642f7375736967${nonce.slice(26, 28)}00000000000000000000000000000000000000`}>
                 <Button
                   className='send-button'
                   icon='paper-plane'

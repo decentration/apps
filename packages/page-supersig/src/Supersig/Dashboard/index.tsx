@@ -37,7 +37,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
   const supersig_nonce = useCall(api.query.supersig?.nonceSupersig);
 
   const headerRef = useRef<([React.ReactNode?, string?, number?] | false)[]>([
-    [t('Supersig collectives'), 'start', 2],
+    [t('Supersig Organisations'), 'start', 2],
     [t('live proposals'), 'number'],
     [t('balance of (members)'), 'number'],
     [undefined, 'media--1500'],
@@ -147,12 +147,12 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
             totalProposals={totalProposalCnt}
           />
           <Button.Group>
-            <a href={'#/supersig/create/0x080000'}>
+            <a href={'#/organisations/create/0x080000'}>
               <Button
                 className='send-button'
                 icon='plus'
                 key='create'
-                label={t<string>('create supersig')}
+                label={t<string>('create an org')}
                 // eslint-disable-next-line react/jsx-no-bind, @typescript-eslint/no-empty-function
                 onClick={() => {}}
               />

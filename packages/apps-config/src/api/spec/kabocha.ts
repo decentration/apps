@@ -62,11 +62,11 @@ const definitions: OverrideBundleDefinition = {
       types: {
         CallId: 'u32',
         FetchListProposals: {
-          info: 'ProposalStates',
+          proposal_info: 'ProposalStates',
           no_of_members: 'u32'
         },
         FetchProposalState: {
-          info: 'ProposalState<AccountId>',
+          proposal_info: 'ProposalState<AccountId>',
           no_of_members: 'u32'
         },
         ProposalState: {
