@@ -22,49 +22,53 @@ interface Props {
   basePath: string;
 }
 
-function createPathRef(basePath: string): Record<string, string | string[]> {
+function createPathRef (basePath: string): Record<string, string | string[]> {
   return {
     create: [`${basePath}/create/:encoded`, `${basePath}/create`],
-    decode: [`${basePath}/decode/:encoded`, `${basePath}/decode`],
     dashboard: [`${basePath}/dashboard`],
+    decode: [`${basePath}/decode/:encoded`, `${basePath}/decode`]
   };
 }
 
-
-function createItemsRef(t: TFunction): TabItem[] {
+function createItemsRef (t: TFunction): TabItem[] {
   return [
     {
       hasParams: true,
       name: 'create',
-      text: t<string>('Create/Approve'),
+      text: t<string>('Create/Approve')
     },
     {
       isRoot: true,
       name: 'dashboard',
-      text: t<string>('Dashboard'),
+      text: t<string>('Dashboard')
     },
-   
+
     {
       hasParams: true,
       name: 'decode',
-      text: t<string>('Decode'),
-    },
+      text: t<string>('Decode')
+    }
   ];
 }
 
-
-function SupersigApp({ basePath }: Props): React.ReactElement<Props> {
+function SupersigApp ({ basePath }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const [decoded, setDecoded] = useState<DecodedExtrinsic | null>(null);
   const itemsRef = useRef(createItemsRef(t));
   const pathRef = useRef(createPathRef(basePath));
 
   return (
-    <main className="supersig--App">
+    <main className='supersig--App'>
       <HelpOverlay md={basicMd as string} />
-      <Tabs basePath={basePath} items={itemsRef.current} />
+      <Tabs
+        basePath={basePath}
+        items={itemsRef.current}
+      />
       <Switch>
-        <Route exact path={basePath}>
+        <Route
+          exact
+          path={basePath}
+        >
           <Redirect to={`${basePath}/dashboard`} />
         </Route>
         <Route path={pathRef.current.dashboard}>
