@@ -34,15 +34,16 @@ function createPathRef(basePath: string): Record<string, string | string[]> {
 function createItemsRef(t: TFunction): TabItem[] {
   return [
     {
-      isRoot: true,
-      name: 'dashboard',
-      text: t<string>('Dashboard'),
-    },
-    {
       hasParams: true,
       name: 'create',
       text: t<string>('Create/Approve'),
     },
+    {
+      isRoot: true,
+      name: 'dashboard',
+      text: t<string>('Dashboard'),
+    },
+   
     {
       hasParams: true,
       name: 'decode',
